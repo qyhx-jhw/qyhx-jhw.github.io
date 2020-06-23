@@ -20,5 +20,23 @@
       <description> 1.第一次使用  觉得还ok   2.第二次使用  </description>
     </item>
     
+    <item>
+      <title>Python数据结构--概述</title>
+      <link>https://qyhx-jhw.github.io/post/about/</link>
+      <pubDate>Sat, 20 Jun 2020 14:50:24 +0800</pubDate>
+      
+      <guid>https://qyhx-jhw.github.io/post/about/</guid>
+      <description>一、概述 数据： 电影《超时空接触》   问题：未知的事物？
+  人类在生活生产，学习探索创造过程中遇到的未知事物
+  如何从未知到已知
+ 感觉、经验、占卜、求神、 逻辑、数学、实验、 工程、 计算、 模型、模拟、仿真、 哲学？    提出有穷观点的能行方法概念是：希尔伯特
+ 由有限数量的明确有限指令构成 指令执行在有限步骤后终止 指令每次执行都总能得到唯一结果 原则上可以由单独采用纸笔完成，而不是依靠其它辅助 每一条指令可以机械的被精确的执行，而不需要智慧和灵感    20世纪30年代，几个关于计算的数学模型
+ 哥德尔和克莱尼的递归函数模型 求其的Lambda演算模型 波斯特的Post机模型 图灵的图灵机模型    图灵机Turing Machine   1936年，Alan Turing提出的一种抽象计算模型
+ 基本思想是用机器模拟人们使用纸笔进行数学运算的过程，但比数值计算更为简答。    《The Imitation Game 2014》模仿游戏
+  图灵机的规则由五个部分来构成。
+  算法和计算复杂性   What：是什么？
+ 面向判断与分类的问题    Why：问什么？</description>
+    </item>
+    
   </channel>
 </rss>
