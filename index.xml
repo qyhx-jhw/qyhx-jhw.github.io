@@ -20,14 +20,5 @@
       <description> 1.第一次使用  觉得还ok   2.第二次使用  </description>
     </item>
     
-    <item>
-      <title>关于</title>
-      <link>https://qyhx-jhw.github.io/post/about/</link>
-      <pubDate>Sat, 20 Jun 2020 14:50:24 +0800</pubDate>
-      
-      <guid>https://qyhx-jhw.github.io/post/about/</guid>
-      <description>这是一个新的博客</description>
-    </item>
-    
   </channel>
 </rss>
