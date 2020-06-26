@@ -1,21 +1,21 @@
 <!doctype html>
-<html lang="en-us">
+<html lang="zh-CN">
   <head>
-    <title>Linux-文件系统 // 博客网站</title>
+    <title>Linux-文件系统 // jhw 博客网站</title>
     <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.72.0" />
+    <meta name="generator" content="Hugo 0.73.0" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="蒋浩文" />
     <meta name="description" content="" />
-    <link rel="stylesheet" href="https://qyhx-jhw.github.io/css/main.min.f90f5edd436ec7b74ad05479a05705770306911f721193e7845948fb07fe1335.css" />
+    <link rel="stylesheet" href="https://qyhx-jhw.github.io/css/main.min.366e0ee61030653c4f8925f9bd4a9db5b3c23b09a6fddf2bccb02e2426ecde43.css" />
 
     
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Linux-文件系统"/>
-<meta name="twitter:description" content="常见的Linux顶层虚拟目录及内容     目录 用途     / 虚拟目录的根目录。通常不会在这存储文件。   /bin 二进制目录。存放许多用户级的GNU工具。   /boot 启动目录，存放启动文件。   /dev 设备目录，Linux在这里创建设备节点。   /etc 系统设备文件目录。   /home 主目录，Linux在这里创建用户目录。   /lib 库目录，存放系统和应用程序的库文件.   /media 媒体目录，可移动媒体设备的常用挂载点。   /mnt 挂载目录，另一个可移动媒体设备的常用挂载点。   /opt 可选目录，常用于存放第三方软件包和数据文件。   /proc 进程目录，存放现有硬件及当前进程的相关信息。   /root root用户的主目录。   /sbin 系统二进制目录，存放许多GNU管理员及工具。   /run 运行目录，存放系统运作时的运行数据。   /srv 服务目录，存放本地服务的相关文件。   /sys 系统目录，存放系统硬件信息的相关文件。   /tmp 临时目录，可以在目录中创建和删除临时工作文件。   /usr 用户二进制目录，大量用户级的GUN工具和数据文件都存储在这里。   /var 可变目录，用以存放经常变化的文件，比如日志文件。     遍历目录 * 在Linux文件系统上，可以使用cd将shell会话切换到另一个目录。  "/>
+<meta name="twitter:description" content="常见的Linux顶层虚拟目录及内容     目录 用途     / 虚拟目录的根目录。通常不会在这存储文件。   /bin 二进制目录。存放许多用户级的GNU工具。   /boot 启动目录，存放启动文件。   /dev 设备目录，Linux在这里创建设备节点。   /etc 系统设备文件目录。   /home 主目录，Linux在这里创建用户目录。   /lib 库目录，存放系统和应用程序的库文件.   /media 媒体目录，可移动媒体设备的常用挂载点。   /mnt 挂载目录，另一个可移动媒体设备的常用挂载点。   /opt 可选目录，常用于存放第三方软件包和数据文件。   /proc 进程目录，存放现有硬件及当前进程的相关信息。   /root root用户的主目录。   /sbin 系统二进制目录，存放许多GNU管理员及工具。   /run 运行目录，存放系统运作时的运行数据。   /srv 服务目录，存放本地服务的相关文件。   /sys 系统目录，存放系统硬件信息的相关文件。   /tmp 临时目录，可以在目录中创建和删除临时工作文件。   /usr 用户二进制目录，大量用户级的GUN工具和数据文件都存储在这里。   /var 可变目录，用以存放经常变化的文件，比如日志文件。     遍历目录  在Linux文件系统上，可以使用cd将shell会话切换到另一个目录。  绝对文件路径：使用请明确的文件路径  [root@CentOS7 ~]#cd /usr/bin/   pwd 查看shell会话的当前目录  [root@CentOS7 /usr/bin]#pwd /usr/bin   相对文件路径：    "/>
 
     <meta property="og:title" content="Linux-文件系统" />
-<meta property="og:description" content="常见的Linux顶层虚拟目录及内容     目录 用途     / 虚拟目录的根目录。通常不会在这存储文件。   /bin 二进制目录。存放许多用户级的GNU工具。   /boot 启动目录，存放启动文件。   /dev 设备目录，Linux在这里创建设备节点。   /etc 系统设备文件目录。   /home 主目录，Linux在这里创建用户目录。   /lib 库目录，存放系统和应用程序的库文件.   /media 媒体目录，可移动媒体设备的常用挂载点。   /mnt 挂载目录，另一个可移动媒体设备的常用挂载点。   /opt 可选目录，常用于存放第三方软件包和数据文件。   /proc 进程目录，存放现有硬件及当前进程的相关信息。   /root root用户的主目录。   /sbin 系统二进制目录，存放许多GNU管理员及工具。   /run 运行目录，存放系统运作时的运行数据。   /srv 服务目录，存放本地服务的相关文件。   /sys 系统目录，存放系统硬件信息的相关文件。   /tmp 临时目录，可以在目录中创建和删除临时工作文件。   /usr 用户二进制目录，大量用户级的GUN工具和数据文件都存储在这里。   /var 可变目录，用以存放经常变化的文件，比如日志文件。     遍历目录 * 在Linux文件系统上，可以使用cd将shell会话切换到另一个目录。  " />
+<meta property="og:description" content="常见的Linux顶层虚拟目录及内容     目录 用途     / 虚拟目录的根目录。通常不会在这存储文件。   /bin 二进制目录。存放许多用户级的GNU工具。   /boot 启动目录，存放启动文件。   /dev 设备目录，Linux在这里创建设备节点。   /etc 系统设备文件目录。   /home 主目录，Linux在这里创建用户目录。   /lib 库目录，存放系统和应用程序的库文件.   /media 媒体目录，可移动媒体设备的常用挂载点。   /mnt 挂载目录，另一个可移动媒体设备的常用挂载点。   /opt 可选目录，常用于存放第三方软件包和数据文件。   /proc 进程目录，存放现有硬件及当前进程的相关信息。   /root root用户的主目录。   /sbin 系统二进制目录，存放许多GNU管理员及工具。   /run 运行目录，存放系统运作时的运行数据。   /srv 服务目录，存放本地服务的相关文件。   /sys 系统目录，存放系统硬件信息的相关文件。   /tmp 临时目录，可以在目录中创建和删除临时工作文件。   /usr 用户二进制目录，大量用户级的GUN工具和数据文件都存储在这里。   /var 可变目录，用以存放经常变化的文件，比如日志文件。     遍历目录  在Linux文件系统上，可以使用cd将shell会话切换到另一个目录。  绝对文件路径：使用请明确的文件路径  [root@CentOS7 ~]#cd /usr/bin/   pwd 查看shell会话的当前目录  [root@CentOS7 /usr/bin]#pwd /usr/bin   相对文件路径：    " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://qyhx-jhw.github.io/post/linux/" />
 <meta property="article:published_time" content="2020-06-20T14:51:56+08:00" />
@@ -26,18 +26,18 @@
   <body>
     <header class="app-header">
       <a href="https://qyhx-jhw.github.io"><img class="app-header-avatar" src="/avatar.jpg" alt="蒋浩文" /></a>
-      <h1>博客网站</h1>
-      <p>好好学习，天天向上</p>
+      <h1>jhw 博客网站</h1>
+      <p>好好学习，天天向上。</p>
       <div class="app-header-social">
         
-          <a target="_blank" href="https://github.com/qyhx-jhw" rel="noreferrer noopener"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github">
+          <a target="_blank" href="https://github.com/qyhx-jhw/" rel="noreferrer noopener"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github">
   <title>github</title>
   <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
 </svg></a>
         
-          <a target="_blank" href="157-1661-9548" rel="noreferrer noopener"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-phone">
-  <title>phone</title>
-  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+          <a target="_blank" href="https://qyhx-jhw.github.io/post/about" rel="noreferrer noopener"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag">
+  <title>tag</title>
+  <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line>
 </svg></a>
         
       </div>
@@ -53,14 +53,15 @@
   <title>calendar</title>
   <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
 </svg>
-          Jun 20, 2020
+          
+          2020-06-20
         </div>
         <div>
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
   <title>clock</title>
   <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
 </svg>
-          1 min read
+          阅读1 分钟
         </div></div>
     </header>
     <div class="post-content">
@@ -154,8 +155,24 @@
 </table>
 <hr>
 <h1 id="遍历目录">遍历目录</h1>
-<pre><code>* 在Linux文件系统上，可以使用cd将shell会话切换到另一个目录。
-</code></pre>
+<ul>
+<li>在Linux文件系统上，可以使用cd将shell会话切换到另一个目录。
+<ul>
+<li>绝对文件路径：使用请明确的文件路径
+<ul>
+<li>[root@CentOS7 ~]#cd /usr/bin/</li>
+</ul>
+</li>
+<li>pwd 查看shell会话的当前目录
+<ul>
+<li>[root@CentOS7 /usr/bin]#pwd</li>
+<li>/usr/bin</li>
+</ul>
+</li>
+<li>相对文件路径：</li>
+</ul>
+</li>
+</ul>
 
     </div>
     <div class="post-footer">
