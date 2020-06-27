@@ -6,10 +6,20 @@
     <description>Recent content in Posts on jhw 博客网站</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 25 Jun 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 27 Jun 2020 15:32:51 +0800</lastBuildDate>
     
 	<atom:link href="https://qyhx-jhw.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Linux文件管理</title>
+      <link>https://qyhx-jhw.github.io/post/linux/linux_make_file/</link>
+      <pubDate>Sat, 27 Jun 2020 15:32:51 +0800</pubDate>
+      
+      <guid>https://qyhx-jhw.github.io/post/linux/linux_make_file/</guid>
+      <description>创建文件   touch命令创建文件
+[root@CentOS7 ~/dir1]#touch test_one [root@CentOS7 ~/dir1]#ll total 0 -rw-r--r--. 1 root root 0 Jun 27 15:41 test_one   复制文件  cp命令完成复制文件的操作：cp source[要复制的文件] destination[目标] 复制于test_one一样的文件test_tow   [root@CentOS7 ~/dir1]#cp test_one test_tow [root@CentOS7 ~/dir1]#ll total 0 -rw-r--r--. 1 root root 0 Jun 27 15:41 test_one -rw-r--r--. 1 root root 0 Jun 27 15:47 test_tow [root@CentOS7 ~/dir1]#  cp -i 新的文件已经存在（test_tow），强制询问是否需要覆盖原文件 也可以复制到现有的其它目录中cp -i test_one ../dir2   [root@CentOS7 ~/dir2]#cd .</description>
+    </item>
     
     <item>
       <title>关于</title>
@@ -31,11 +41,11 @@ Pycharm &amp;hellip;</description>
     </item>
     
     <item>
-      <title>Linux-文件系统</title>
-      <link>https://qyhx-jhw.github.io/post/linux/</link>
+      <title>Linux-文件和目录列表</title>
+      <link>https://qyhx-jhw.github.io/post/linux/linux/</link>
       <pubDate>Sat, 20 Jun 2020 14:51:56 +0800</pubDate>
       
-      <guid>https://qyhx-jhw.github.io/post/linux/</guid>
+      <guid>https://qyhx-jhw.github.io/post/linux/linux/</guid>
       <description>常见的Linux顶层虚拟目录及内容     目录 用途     / 虚拟目录的根目录。通常不会在这存储文件。   /bin 二进制目录。存放许多用户级的GNU工具。   /boot 启动目录，存放启动文件。   /dev 设备目录，Linux在这里创建设备节点。   /etc 系统设备文件目录。   /home 主目录，Linux在这里创建用户目录。   /lib 库目录，存放系统和应用程序的库文件.   /media 媒体目录，可移动媒体设备的常用挂载点。   /mnt 挂载目录，另一个可移动媒体设备的常用挂载点。   /opt 可选目录，常用于存放第三方软件包和数据文件。   /proc 进程目录，存放现有硬件及当前进程的相关信息。   /root root用户的主目录。   /sbin 系统二进制目录，存放许多GNU管理员及工具。   /run 运行目录，存放系统运作时的运行数据。   /srv 服务目录，存放本地服务的相关文件。   /sys 系统目录，存放系统硬件信息的相关文件。   /tmp 临时目录，可以在目录中创建和删除临时工作文件。   /usr 用户二进制目录，大量用户级的GUN工具和数据文件都存储在这里。   /var 可变目录，用以存放经常变化的文件，比如日志文件。     遍历目录 &amp;lsquo;cd&amp;rsquo; 在Linux文件系统上，可以使用cd将shell会话切换到另一个目录。   绝对文件路径：使用请明确的文件路径</description>
     </item>
     
