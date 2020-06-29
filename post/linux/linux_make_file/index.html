@@ -12,12 +12,14 @@
     
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Linux文件管理"/>
-<meta name="twitter:description" content="创建文件   touch命令创建文件
-[root@CentOS7 ~/dir1]#touch test_one [root@CentOS7 ~/dir1]#ll total 0 -rw-r--r--. 1 root root 0 Jun 27 15:41 test_one   复制文件  cp命令完成复制文件的操作：cp source[要复制的文件] destination[目标] 复制于test_one一样的文件test_tow  [root@CentOS7 ~/dir1]#cp test_one test_tow [root@CentOS7 ~/dir1]#ll total 0 -rw-r--r--. 1 root root 0 Jun 27 15:41 test_one -rw-r--r--. 1 root root 0 Jun 27 15:47 test_tow [root@CentOS7 ~/dir1]#  cp -i 新的文件已经存在（test_tow），强制询问是否需要覆盖原文件 也可以复制到现有的其它目录中cp -i test_one ../dir2   [root@CentOS7 ~/dir2]#cd ../dir1/ [root@CentOS7 ~/dir1]#ll total 0 -rw-r--r--."/>
+<meta name="twitter:description" content="[TOC]
+创建文件   touch命令创建文件
+[root@CentOS7 ~/dir1]#touch test_one [root@CentOS7 ~/dir1]#ll total 0 -rw-r--r--. 1 root root 0 Jun 27 15:41 test_one   复制文件  cp命令完成复制文件的操作：cp source[要复制的文件] destination[目标] 复制于test_one一样的文件test_tow  [root@CentOS7 ~/dir1]#cp test_one test_tow [root@CentOS7 ~/dir1]#ll total 0 -rw-r--r--. 1 root root 0 Jun 27 15:41 test_one -rw-r--r--. 1 root root 0 Jun 27 15:47 test_tow [root@CentOS7 ~/dir1]#  cp -i 新的文件已经存在（test_tow），强制询问是否需要覆盖原文件 也可以复制到现有的其它目录中cp -i test_one ../dir2   [root@CentOS7 ~/dir2]#cd ."/>
 
     <meta property="og:title" content="Linux文件管理" />
-<meta property="og:description" content="创建文件   touch命令创建文件
-[root@CentOS7 ~/dir1]#touch test_one [root@CentOS7 ~/dir1]#ll total 0 -rw-r--r--. 1 root root 0 Jun 27 15:41 test_one   复制文件  cp命令完成复制文件的操作：cp source[要复制的文件] destination[目标] 复制于test_one一样的文件test_tow  [root@CentOS7 ~/dir1]#cp test_one test_tow [root@CentOS7 ~/dir1]#ll total 0 -rw-r--r--. 1 root root 0 Jun 27 15:41 test_one -rw-r--r--. 1 root root 0 Jun 27 15:47 test_tow [root@CentOS7 ~/dir1]#  cp -i 新的文件已经存在（test_tow），强制询问是否需要覆盖原文件 也可以复制到现有的其它目录中cp -i test_one ../dir2   [root@CentOS7 ~/dir2]#cd ../dir1/ [root@CentOS7 ~/dir1]#ll total 0 -rw-r--r--." />
+<meta property="og:description" content="[TOC]
+创建文件   touch命令创建文件
+[root@CentOS7 ~/dir1]#touch test_one [root@CentOS7 ~/dir1]#ll total 0 -rw-r--r--. 1 root root 0 Jun 27 15:41 test_one   复制文件  cp命令完成复制文件的操作：cp source[要复制的文件] destination[目标] 复制于test_one一样的文件test_tow  [root@CentOS7 ~/dir1]#cp test_one test_tow [root@CentOS7 ~/dir1]#ll total 0 -rw-r--r--. 1 root root 0 Jun 27 15:41 test_one -rw-r--r--. 1 root root 0 Jun 27 15:47 test_tow [root@CentOS7 ~/dir1]#  cp -i 新的文件已经存在（test_tow），强制询问是否需要覆盖原文件 也可以复制到现有的其它目录中cp -i test_one ../dir2   [root@CentOS7 ~/dir2]#cd ." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://qyhx-jhw.github.io/post/linux/linux_make_file/" />
 <meta property="article:published_time" content="2020-06-27T15:32:51+08:00" />
@@ -67,7 +69,8 @@
         </div></div>
     </header>
     <div class="post-content">
-      <h1 id="创建文件">创建文件</h1>
+      <p>[TOC]</p>
+<h1 id="创建文件">创建文件</h1>
 <ul>
 <li>
 <p>touch命令创建文件</p>
@@ -228,7 +231,7 @@ file.txt: ASCII text
 </code></pre></div><ul>
 <li>
 <p>查看整个文件</p>
-</li>
+<ul>
 <li>
 <p>cat 命令显示文本文件中所有数据的得力工具。直接显示文件全部内容，无法控制</p>
 <ul>
@@ -264,10 +267,52 @@ file.txt: ASCII text
 </ul>
 </li>
 <li>
-<p>more命令，会在每页数据之后停下来</p>
+<p>more命令，会在每页数据之后停下来
+<!-- raw HTML omitted --></p>
+</li>
+<li>
+<p>less命令，一次显示一屏的文本文件。能够识别上下键翻页。</p>
 </li>
 </ul>
-<p><img src="../../../layouts/more.jpg" alt="more"></p>
+</li>
+<li>
+<p>查看部分文件</p>
+<ul>
+<li>
+<p>tail命令，显示文件最后几行的内容。默认显示文件末尾10行。</p>
+<ul>
+<li>tail -n 2 文件名 （显示文件最后两行）</li>
+<li>tail -2 文件名</li>
+<li><strong>-f 是tail的付出特性它允许你在其他进程使用该文件时查看文件的内容。tail 命令会保持活动状态，并不断显示添加到文件中的内容。这是实时监测系统日志的绝妙方式。</strong></li>
+</ul>
+</li>
+<li>
+<p>head 命令显示默认前10行。</p>
+<ul>
+<li>head -n 2 文件名</li>
+<li>head -2 文件名</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1 id="小结">小结</h1>
+<ul>
+<li>
+<p>touch 命令非常有用，可以创建空文件和变更已有文件的访问时间或修改时间。</p>
+</li>
+<li>
+<p>本章还介绍了如何使用 cp 命令将已有文件复制到其他位置。另外还逐步介绍了如何链接文件，给出了一种简单的方法可以实现在两个位置上拥有同一个文件且不用生成单独的副本。 ln 命令提供了这种链接功能。</p>
+</li>
+<li>
+<p>接着我们讲了怎样用 mv 命令重命名文件（在Linux中称为移动文件），以及如何用 rm 命令删除文件（在Linux中称为移除文件），还介绍了怎样用 mkdir 和 rmdir 命令对目录执行相同的任务。</p>
+</li>
+<li>
+<p>最后，本章以如何查看文件的内容作结。 cat 、 more 和 less 命令可以非常方便地查看文件
+全部内容，而且 tail 和 head 命令还可查看文件中的一小部分内容。</p>
+</li>
+</ul>
 
     </div>
     <div class="post-footer">
