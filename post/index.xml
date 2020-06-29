@@ -6,7 +6,7 @@
     <description>Recent content in Posts on jhw 博客网站</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 27 Jun 2020 15:32:51 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 29 Jun 2020 17:05:32 +0800</lastBuildDate>
     
 	<atom:link href="https://qyhx-jhw.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
@@ -32,22 +32,13 @@
     </item>
     
     <item>
-      <title>关于</title>
-      <link>https://qyhx-jhw.github.io/post/about/</link>
-      <pubDate>Thu, 25 Jun 2020 00:00:00 +0000</pubDate>
+      <title>Python：十种排序算法</title>
+      <link>https://qyhx-jhw.github.io/post/python_sort/</link>
+      <pubDate>Mon, 29 Jun 2020 17:05:32 +0800</pubDate>
       
-      <guid>https://qyhx-jhw.github.io/post/about/</guid>
-      <description>联系方式  手机：15716619548 Email：15716619548@163.com 微信号：15716619548  个人信息  蒋浩文/男/1997 本科/南阳理工学院/软件学院 工作年限：2020年应届 技术博客：https://qyhx-jhw.github.io Github: https://github.com/qyhx-jhw/   期望职位：后端开发相关岗位  项目经历  项目名称：人事信息管理项目 项目简介：将琐碎的人事工作在系统中实现，简单便携化。 主要工作：  主要负责前端界面的设计与实现，后端服务器设计搭建，实现前后端交互。 前端网页的实现采用了 JavaScript 中的 React 库，进行搭建实现，React 使得前端设计也实现了模块化开发。 界面组件采用了 Ant Design 的组件。 与后端交互用到了 axios 库将数据 Json 处理进行传输。 后端服务使用了 Django 框架。 数据存储用到了关系型数据库 MySQL。    技能清单  以下是我熟练使用的技能  编程语言：Python · 后端框架：Django · 前端框架：React   以下是我接触并了解的技能  Redis 数据库，Linux 的基本命令，Nginx    </description>
-    </item>
-    
-    <item>
-      <title>工具</title>
-      <link>https://qyhx-jhw.github.io/post/tools/</link>
-      <pubDate>Thu, 25 Jun 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://qyhx-jhw.github.io/post/tools/</guid>
-      <description>Python 。。。
-Pycharm &amp;hellip;</description>
+      <guid>https://qyhx-jhw.github.io/post/python_sort/</guid>
+      <description>以下内容来自于：  作者：牛奶芝麻 链接：https://www.jianshu.com/p/bbbab7fa77a2 来源：简书 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。     1.冒泡排序（Bubble Sort） def bubbleSort(nums): for i in range(len(nums) - 1): # 遍历 len(nums)-1 次 for j in range(len(nums) - i - 1): # 已排好序的部分不用再次遍历 if nums[j] &amp;gt; nums[j+1]: nums[j], nums[j+1] = nums[j+1], nums[j] # Python 交换两个数不用中间变量 return nums 2.选择排序（Selection Sort） 选择排序不受输入数据的影响，即在任何情况下时间复杂度不变。选择排序每次选出最小的元素，因此需要遍历 n-1 次。
+def selectionSort(nums): for i in range(len(nums) - 1): # 遍历 len(nums)-1 次 minIndex = i for j in range(i + 1, len(nums)): if nums[j] &amp;lt; nums[minIndex]: # 更新最小值索引 minIndex = j nums[i], nums[minIndex] = nums[minIndex], nums[i] # 把最小数交换到前面 return nums 3.</description>
     </item>
     
     <item>
@@ -66,6 +57,25 @@ Pycharm &amp;hellip;</description>
   图灵机的规则由五个部分来构成。
   算法和计算复杂性   What：是什么？
  面向判断与分类的问题    Why：问什么？</description>
+    </item>
+    
+    <item>
+      <title>工具</title>
+      <link>https://qyhx-jhw.github.io/post/tools/</link>
+      <pubDate>Thu, 25 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://qyhx-jhw.github.io/post/tools/</guid>
+      <description>Python 。。。
+Pycharm &amp;hellip;</description>
+    </item>
+    
+    <item>
+      <title>简历</title>
+      <link>https://qyhx-jhw.github.io/post/about/</link>
+      <pubDate>Thu, 25 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://qyhx-jhw.github.io/post/about/</guid>
+      <description>联系方式  手机：15716619548 Email：15716619548@163.com 微信号：15716619548  个人信息  蒋浩文/男/1997 本科/南阳理工学院/软件学院 工作年限：2020年应届 技术博客：https://qyhx-jhw.github.io Github: https://github.com/qyhx-jhw/   期望职位：后端开发相关岗位  项目经历  项目名称：人事信息管理项目 项目简介：将琐碎的人事工作在系统中实现，简单便携化。 主要工作：  主要负责前端界面的设计与实现，后端服务器设计搭建，实现前后端交互。 前端网页的实现采用了 JavaScript 中的 React 库，进行搭建实现，React 使得前端设计也实现了模块化开发。 界面组件采用了 Ant Design 的组件。 与后端交互用到了 axios 库将数据 Json 处理进行传输。 后端服务使用了 Django 框架。 数据存储用到了关系型数据库 MySQL。    技能清单  以下是我熟练使用的技能  编程语言：Python · 后端框架：Django · 前端框架：React   以下是我接触并了解的技能  Redis 数据库，Linux 的基本命令，Nginx    </description>
     </item>
     
   </channel>
