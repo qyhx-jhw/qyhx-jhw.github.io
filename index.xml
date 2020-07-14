@@ -6,7 +6,7 @@
     <description>Recent content on jhw 博客网站</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 29 Jun 2020 17:05:32 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 30 Jun 2020 15:09:26 +0800</lastBuildDate>
     
 	<atom:link href="https://qyhx-jhw.github.io/index.xml" rel="self" type="application/rss+xml" />
     
@@ -32,13 +32,23 @@
     </item>
     
     <item>
-      <title>Python：十种排序算法</title>
-      <link>https://qyhx-jhw.github.io/post/python_sort/</link>
+      <title>Linux_系统管理命令</title>
+      <link>https://qyhx-jhw.github.io/post/linux/linux_%E7%AE%A1%E7%90%86%E5%91%BD%E4%BB%A4/</link>
+      <pubDate>Tue, 30 Jun 2020 15:09:26 +0800</pubDate>
+      
+      <guid>https://qyhx-jhw.github.io/post/linux/linux_%E7%AE%A1%E7%90%86%E5%91%BD%E4%BB%A4/</guid>
+      <description>一.检测程序   探查进程
+ 进程（process），ps命令输出 支持三种不同类型的命令行参数   Unix风格参数
+   参数 描述     -A 显示所有进程   -N 显示与指定参数不符的所有进程   -a 显示除控制进程（session leader ① ）和无终端进程外的所有进程   -d 显示除控制进程外的所有进程   -e 显示所有进程   -C cmdlist 显示包含在 cmdlist 列表中的进程   -G grplist 显示组ID在 grplist 列表中的进程   -U userlist 显示属主的用户ID在 userlist 列表中的进程   -g grplist 显示会话或组ID在 grplist 列表中的进程 ②   -p pidlist 显示PID在 pidlist 列表中的进程   -s sesslist 显示会话ID在 sesslist 列表中的进程   -t ttylist 显示终端ID在 ttylist 列表中的进程   -u userlist 显示有效用户ID在 userlist 列表中的进程   -F 显示更多额外输出（相对 -f 参数而言）   -O format 显示默认的输出列以及 format 列表指定的特定列   -M 显示进程的安全信息   -c 显示进程的额外调度器信息   -f 显示完整格式的输出   -j 显示任务信息   -l 显示长列表   -o format 仅显示由 format 指定的列   -y 不要显示进程标记（process flag，表明进程状态的标记）   -Z 显示安全标签（security context） ① 信息   -H 用层级格式来显示进程（树状，用来显示父进程）   -n namelist 定义了 WCHAN 列显示的值   -w 采用宽输出模式，不限宽度显示   -L 显示进程中的线程   -V 显示 ps 命令的版本号      UID:启动这些进程的用户 PID：进程的进程ID PPID：父进程的进程号 C:进程生命周期中CPU利用率 STIME：进程启动时的系统时间 TTY：进程启动时的终端设备 TIME：运行进程所需要累计CPU时间 CMD：启动的程序名称     BSD风格参数</description>
+    </item>
+    
+    <item>
+      <title>Python：排序与查找</title>
+      <link>https://qyhx-jhw.github.io/post/python_sort_search/</link>
       <pubDate>Mon, 29 Jun 2020 17:05:32 +0800</pubDate>
       
-      <guid>https://qyhx-jhw.github.io/post/python_sort/</guid>
-      <description>以下内容来自于：  作者：牛奶芝麻 链接：https://www.jianshu.com/p/bbbab7fa77a2 来源：简书 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。     1.冒泡排序（Bubble Sort） def bubbleSort(nums): for i in range(len(nums) - 1): # 遍历 len(nums)-1 次 for j in range(len(nums) - i - 1): # 已排好序的部分不用再次遍历 if nums[j] &amp;gt; nums[j+1]: nums[j], nums[j+1] = nums[j+1], nums[j] # Python 交换两个数不用中间变量 return nums 2.选择排序（Selection Sort） 选择排序不受输入数据的影响，即在任何情况下时间复杂度不变。选择排序每次选出最小的元素，因此需要遍历 n-1 次。
-def selectionSort(nums): for i in range(len(nums) - 1): # 遍历 len(nums)-1 次 minIndex = i for j in range(i + 1, len(nums)): if nums[j] &amp;lt; nums[minIndex]: # 更新最小值索引 minIndex = j nums[i], nums[minIndex] = nums[minIndex], nums[i] # 把最小数交换到前面 return nums 3.</description>
+      <guid>https://qyhx-jhw.github.io/post/python_sort_search/</guid>
+      <description>课程来自于：数据结构与算法Python版&amp;ndash;北京大学&amp;ndash;陈斌老师 顺序查找Sequential Search  如果数据项保存在如列表这样的集合中我们会称这些数据项具有线性或者顺序关系。 在Python List中,这些数据项的存储位置称为下标( index) , 这些下标都是有序的整数。 通过下标,我们就可以按照顺序来访问和查找数据项,这种技术称为&amp;quot;顺序查找” def sequentialSearch(alist, item): pos = 0 found = False while pos &amp;lt; len(alist) and not found: if alist[pos] == item: found = True else: pos += 1 return found   二分查找 # 二分查找：有序表 def binarySearch(alist, item): first = 0 # 起点 last = len(alist) - 1 # 终点 found = False while first &amp;lt;= last and not found: midpoint = (first + last) // 2 # 中间下标 if alist[midpoint] == item: found = True else: if item &amp;lt; alist[midpoint]: last = midpoint - 1 else: first = midpoint + 1 return found 二分查找递归版本 def binarySearch(alist: list, item): if len(alist) == 0: return False else: midpoint = len(alist) // 2 # 在中间下标 if alist[midpoint] == item: return True else: if item &amp;lt; alist[midpoint]: return binarySearch(alist[:midpoint], item) else: return binarySearch(alist[midpoint + 1:], item) # +1是包左不包右（左闭右开）  1.</description>
     </item>
     
     <item>
@@ -66,7 +76,8 @@ def selectionSort(nums): for i in range(len(nums) - 1): # 遍历 len(nums)-1 次
       
       <guid>https://qyhx-jhw.github.io/post/tools/</guid>
       <description>Python 。。。
-Pycharm &amp;hellip;</description>
+Pycharm &amp;hellip;
+Tengine Tengine是由淘宝网发起的Web服务器项目。 *</description>
     </item>
     
     <item>
