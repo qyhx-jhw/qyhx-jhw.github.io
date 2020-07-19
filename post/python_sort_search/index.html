@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="蒋浩文" />
     <meta name="description" content="" />
-    <link rel="stylesheet" href="https://qyhx-jhw.github.io/css/main.min.366e0ee61030653c4f8925f9bd4a9db5b3c23b09a6fddf2bccb02e2426ecde43.css" />
+    <link rel="stylesheet" href="https://jhweb.top/css/main.min.366e0ee61030653c4f8925f9bd4a9db5b3c23b09a6fddf2bccb02e2426ecde43.css" />
 
     
     <meta name="twitter:card" content="summary"/>
@@ -17,7 +17,7 @@
     <meta property="og:title" content="Python：排序与查找" />
 <meta property="og:description" content="课程来自于：数据结构与算法Python版&ndash;北京大学&ndash;陈斌老师 顺序查找Sequential Search  如果数据项保存在如列表这样的集合中我们会称这些数据项具有线性或者顺序关系。 在Python List中,这些数据项的存储位置称为下标( index) , 这些下标都是有序的整数。 通过下标,我们就可以按照顺序来访问和查找数据项,这种技术称为&quot;顺序查找” def sequentialSearch(alist, item): pos = 0 found = False while pos &lt; len(alist) and not found: if alist[pos] == item: found = True else: pos &#43;= 1 return found   二分查找 # 二分查找：有序表 def binarySearch(alist, item): first = 0 # 起点 last = len(alist) - 1 # 终点 found = False while first &lt;= last and not found: midpoint = (first &#43; last) // 2 # 中间下标 if alist[midpoint] == item: found = True else: if item &lt; alist[midpoint]: last = midpoint - 1 else: first = midpoint &#43; 1 return found 二分查找递归版本 def binarySearch(alist: list, item): if len(alist) == 0: return False else: midpoint = len(alist) // 2 # 在中间下标 if alist[midpoint] == item: return True else: if item &lt; alist[midpoint]: return binarySearch(alist[:midpoint], item) else: return binarySearch(alist[midpoint &#43; 1:], item) # &#43;1是包左不包右（左闭右开）  1." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://qyhx-jhw.github.io/post/python_sort_search/" />
+<meta property="og:url" content="https://jhweb.top/post/python_sort_search/" />
 <meta property="article:published_time" content="2020-06-29T17:05:32+08:00" />
 <meta property="article:modified_time" content="2020-06-29T17:05:32+08:00" />
 
@@ -25,7 +25,7 @@
   </head>
   <body>
     <header class="app-header">
-      <a href="https://qyhx-jhw.github.io"><img class="app-header-avatar" src="/avatar.jpg" alt="蒋浩文" /></a>
+      <a href="https://jhweb.top"><img class="app-header-avatar" src="/avatar.jpg" alt="蒋浩文" /></a>
       <h1>jhw 博客网站</h1>
       <p>好好学习，天天向上。</p>
       <div class="app-header-social">
