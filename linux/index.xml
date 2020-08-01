@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Linuxes on jhw 博客网站</title>
+    <link>https://jhweb.top/linux/</link>
+    <description>Recent content in Linuxes on jhw 博客网站</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 30 Jun 2020 15:09:26 +0800</lastBuildDate>
+    
+	<atom:link href="https://jhweb.top/linux/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Linux-文件和目录列表</title>
+      <link>https://jhweb.top/linux/linux/</link>
+      <pubDate>Sat, 20 Jun 2020 14:51:56 +0800</pubDate>
+      
+      <guid>https://jhweb.top/linux/linux/</guid>
+      <description>常见的Linux顶层虚拟目录及内容     目录 用途     / 虚拟目录的根目录。通常不会在这存储文件。   /bin 二进制目录。存放许多用户级的GNU工具。   /boot 启动目录，存放启动文件。   /dev 设备目录，Linux在这里创建设备节点。   /etc 系统设备文件目录。   /home 主目录，Linux在这里创建用户目录。   /lib 库目录，存放系统和应用程序的库文件.   /media 媒体目录，可移动媒体设备的常用挂载点。   /mnt 挂载目录，另一个可移动媒体设备的常用挂载点。   /opt 可选目录，常用于存放第三方软件包和数据文件。   /proc 进程目录，存放现有硬件及当前进程的相关信息。   /root root用户的主目录。   /sbin 系统二进制目录，存放许多GNU管理员及工具。   /run 运行目录，存放系统运作时的运行数据。   /srv 服务目录，存放本地服务的相关文件。   /sys 系统目录，存放系统硬件信息的相关文件。   /tmp 临时目录，可以在目录中创建和删除临时工作文件。   /usr 用户二进制目录，大量用户级的GUN工具和数据文件都存储在这里。   /var 可变目录，用以存放经常变化的文件，比如日志文件。     遍历目录 &amp;lsquo;cd&amp;rsquo; 在Linux文件系统上，可以使用cd将shell会话切换到另一个目录。   绝对文件路径：使用请明确的文件路径</description>
+    </item>
+    
+    <item>
+      <title>Linux文件管理</title>
+      <link>https://jhweb.top/linux/linux_make_file/</link>
+      <pubDate>Sat, 27 Jun 2020 15:32:51 +0800</pubDate>
+      
+      <guid>https://jhweb.top/linux/linux_make_file/</guid>
+      <description>[TOC]
+创建文件   touch命令创建文件
+[root@CentOS7 ~/dir1]#touch test_one [root@CentOS7 ~/dir1]#ll total 0 -rw-r--r--. 1 root root 0 Jun 27 15:41 test_one   复制文件  cp命令完成复制文件的操作：cp source[要复制的文件] destination[目标] 复制于test_one一样的文件test_tow  [root@CentOS7 ~/dir1]#cp test_one test_tow [root@CentOS7 ~/dir1]#ll total 0 -rw-r--r--. 1 root root 0 Jun 27 15:41 test_one -rw-r--r--. 1 root root 0 Jun 27 15:47 test_tow [root@CentOS7 ~/dir1]#  cp -i 新的文件已经存在（test_tow），强制询问是否需要覆盖原文件 也可以复制到现有的其它目录中cp -i test_one ../dir2   [root@CentOS7 ~/dir2]#cd .</description>
+    </item>
+    
+    <item>
+      <title>Linux_系统管理命令</title>
+      <link>https://jhweb.top/linux/linux_%E7%AE%A1%E7%90%86%E5%91%BD%E4%BB%A4/</link>
+      <pubDate>Tue, 30 Jun 2020 15:09:26 +0800</pubDate>
+      
+      <guid>https://jhweb.top/linux/linux_%E7%AE%A1%E7%90%86%E5%91%BD%E4%BB%A4/</guid>
+      <description>一.监测程序   探查进程
+ 进程（process），ps命令输出 支持三种不同类型的命令行参数   Unix风格参数
+   参数 描述     -A 显示所有进程   -N 显示与指定参数不符的所有进程   -a 显示除控制进程（session leader ① ）和无终端进程外的所有进程   -d 显示除控制进程外的所有进程   -e 显示所有进程   -C cmdlist 显示包含在 cmdlist 列表中的进程   -G grplist 显示组ID在 grplist 列表中的进程   -U userlist 显示属主的用户ID在 userlist 列表中的进程   -g grplist 显示会话或组ID在 grplist 列表中的进程 ②   -p pidlist 显示PID在 pidlist 列表中的进程   -s sesslist 显示会话ID在 sesslist 列表中的进程   -t ttylist 显示终端ID在 ttylist 列表中的进程   -u userlist 显示有效用户ID在 userlist 列表中的进程   -F 显示更多额外输出（相对 -f 参数而言）   -O format 显示默认的输出列以及 format 列表指定的特定列   -M 显示进程的安全信息   -c 显示进程的额外调度器信息   -f 显示完整格式的输出   -j 显示任务信息   -l 显示长列表   -o format 仅显示由 format 指定的列   -y 不要显示进程标记（process flag，表明进程状态的标记）   -Z 显示安全标签（security context） ① 信息   -H 用层级格式来显示进程（树状，用来显示父进程）   -n namelist 定义了 WCHAN 列显示的值   -w 采用宽输出模式，不限宽度显示   -L 显示进程中的线程   -V 显示 ps 命令的版本号      UID:启动这些进程的用户 PID：进程的进程ID PPID：父进程的进程号 C:进程生命周期中CPU利用率 STIME：进程启动时的系统时间 TTY：进程启动时的终端设备 TIME：运行进程所需要累计CPU时间 CMD：启动的程序名称     BSD风格参数</description>
+    </item>
+    
+  </channel>
+</rss>

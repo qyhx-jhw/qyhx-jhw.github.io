@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pythons on jhw 博客网站</title>
+    <link>https://jhweb.top/python/</link>
+    <description>Recent content in Pythons on jhw 博客网站</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Fri, 31 Jul 2020 15:37:16 +0800</lastBuildDate>
+    
+	<atom:link href="https://jhweb.top/python/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Python：排序与查找</title>
+      <link>https://jhweb.top/python/python_sort_search/</link>
+      <pubDate>Mon, 29 Jun 2020 17:05:32 +0800</pubDate>
+      
+      <guid>https://jhweb.top/python/python_sort_search/</guid>
+      <description>课程来自于：数据结构与算法Python版&amp;ndash;北京大学&amp;ndash;陈斌老师 顺序查找Sequential Search  如果数据项保存在如列表这样的集合中我们会称这些数据项具有线性或者顺序关系。 在Python List中,这些数据项的存储位置称为下标( index) , 这些下标都是有序的整数。 通过下标,我们就可以按照顺序来访问和查找数据项,这种技术称为&amp;quot;顺序查找” def sequentialSearch(alist, item): pos = 0 found = False while pos &amp;lt; len(alist) and not found: if alist[pos] == item: found = True else: pos += 1 return found   二分查找 # 二分查找：有序表 def binarySearch(alist, item): first = 0 # 起点 last = len(alist) - 1 # 终点 found = False while first &amp;lt;= last and not found: midpoint = (first + last) // 2 # 中间下标 if alist[midpoint] == item: found = True else: if item &amp;lt; alist[midpoint]: last = midpoint - 1 else: first = midpoint + 1 return found 二分查找递归版本 def binarySearch(alist: list, item): if len(alist) == 0: return False else: midpoint = len(alist) // 2 # 在中间下标 if alist[midpoint] == item: return True else: if item &amp;lt; alist[midpoint]: return binarySearch(alist[:midpoint], item) else: return binarySearch(alist[midpoint + 1:], item) # +1是包左不包右（左闭右开）  1.</description>
+    </item>
+    
+    <item>
+      <title>Python数据结构--概述</title>
+      <link>https://jhweb.top/python/python/</link>
+      <pubDate>Sat, 20 Jun 2020 14:50:24 +0800</pubDate>
+      
+      <guid>https://jhweb.top/python/python/</guid>
+      <description>一、概述 数据： 电影《超时空接触》   问题：未知的事物？
+  人类在生活生产，学习探索创造过程中遇到的未知事物
+  如何从未知到已知
+ 感觉、经验、占卜、求神、 逻辑、数学、实验、 工程、 计算、 模型、模拟、仿真、 哲学？    提出有穷观点的能行方法概念是：希尔伯特
+ 由有限数量的明确有限指令构成 指令执行在有限步骤后终止 指令每次执行都总能得到唯一结果 原则上可以由单独采用纸笔完成，而不是依靠其它辅助 每一条指令可以机械的被精确的执行，而不需要智慧和灵感    20世纪30年代，几个关于计算的数学模型
+ 哥德尔和克莱尼的递归函数模型 求其的Lambda演算模型 波斯特的Post机模型 图灵的图灵机模型    图灵机Turing Machine   1936年，Alan Turing提出的一种抽象计算模型
+ 基本思想是用机器模拟人们使用纸笔进行数学运算的过程，但比数值计算更为简答。    《The Imitation Game 2014》模仿游戏
+  图灵机的规则由五个部分来构成。
+  算法和计算复杂性   What：是什么？
+ 面向判断与分类的问题    Why：问什么？</description>
+    </item>
+    
+    <item>
+      <title>Python_协程</title>
+      <link>https://jhweb.top/python/python_%E5%8D%8F%E7%A8%8B/</link>
+      <pubDate>Fri, 31 Jul 2020 15:37:16 +0800</pubDate>
+      
+      <guid>https://jhweb.top/python/python_%E5%8D%8F%E7%A8%8B/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>工具</title>
+      <link>https://jhweb.top/python/tools/</link>
+      <pubDate>Thu, 25 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://jhweb.top/python/tools/</guid>
+      <description>Python 《维基百科》-&amp;gt;
+  Python是一种广泛使用的解释型、高级编程、通用型编程语言，由吉多·范罗苏姆创造，第一版发布于1991年。Python是ABC语言的后继者，也可以视之为一种使用传统中缀表达式的LISP方言[4]。Python的设计哲学强调代码的可读性和简洁的语法（尤其是使用空格缩进划分代码块，而非使用大括号或者关键词）。相比于C++或Java，Python让开发者能够用更少的代码表达想法。不管是小型还是大型程序，该语言都试图让程序的结构清晰明了。
+  与Scheme、Ruby、Perl、Tcl等动态类型编程语言一样，Python拥有动态类型系统和垃圾回收功能，能够自动管理内存使用，并且支持多种编程范式，包括面向对象、命令式、函数式和过程式编程。其本身拥有一个巨大而广泛的标准库。
+  Python 解释器本身几乎可以在所有的操作系统中运行。Python的其中一个解释器CPython是用C语言编写的、是一个由社群驱动的自由软件，目前由Python软件基金会管理。
+   Pycharm  PyCharm是一个用于计算机编程的集成开发环境，主要用于Python语言开发，由捷克公司JetBrains开发，提供代码分析、图形化调试器，集成测试器、集成版本控制系统，并支持使用Django进行网页开发。 PyCharm是一个跨平台开发环境，拥有Microsoft Windows、macOS和Linux版本。   Tengine Tengine是由淘宝网发起的Web服务器项目。
+ Tengine是一个由淘宝从Nginx复刻出来的HTTP服务器，现时版本为2.2.2。Tengine对Nginx的修改版本是于2011年12月开始释放出来成为开源项目，两者配置兼容。  </description>
+    </item>
+    
+  </channel>
+</rss>

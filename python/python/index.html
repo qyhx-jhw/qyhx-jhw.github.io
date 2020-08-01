@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <title>Python数据结构--概述 // jhw 博客网站</title>
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.73.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="蒋浩文" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="https://jhweb.top/css/main.min.366e0ee61030653c4f8925f9bd4a9db5b3c23b09a6fddf2bccb02e2426ecde43.css" />
+
+    
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Python数据结构--概述"/>
+<meta name="twitter:description" content="一、概述 数据： 电影《超时空接触》   问题：未知的事物？
+  人类在生活生产，学习探索创造过程中遇到的未知事物
+  如何从未知到已知
+ 感觉、经验、占卜、求神、 逻辑、数学、实验、 工程、 计算、 模型、模拟、仿真、 哲学？    提出有穷观点的能行方法概念是：希尔伯特
+ 由有限数量的明确有限指令构成 指令执行在有限步骤后终止 指令每次执行都总能得到唯一结果 原则上可以由单独采用纸笔完成，而不是依靠其它辅助 每一条指令可以机械的被精确的执行，而不需要智慧和灵感    20世纪30年代，几个关于计算的数学模型
+ 哥德尔和克莱尼的递归函数模型 求其的Lambda演算模型 波斯特的Post机模型 图灵的图灵机模型    图灵机Turing Machine   1936年，Alan Turing提出的一种抽象计算模型
+ 基本思想是用机器模拟人们使用纸笔进行数学运算的过程，但比数值计算更为简答。    《The Imitation Game 2014》模仿游戏
+  图灵机的规则由五个部分来构成。
+  算法和计算复杂性   What：是什么？
+ 面向判断与分类的问题    Why：问什么？"/>
+
+    <meta property="og:title" content="Python数据结构--概述" />
+<meta property="og:description" content="一、概述 数据： 电影《超时空接触》   问题：未知的事物？
+  人类在生活生产，学习探索创造过程中遇到的未知事物
+  如何从未知到已知
+ 感觉、经验、占卜、求神、 逻辑、数学、实验、 工程、 计算、 模型、模拟、仿真、 哲学？    提出有穷观点的能行方法概念是：希尔伯特
+ 由有限数量的明确有限指令构成 指令执行在有限步骤后终止 指令每次执行都总能得到唯一结果 原则上可以由单独采用纸笔完成，而不是依靠其它辅助 每一条指令可以机械的被精确的执行，而不需要智慧和灵感    20世纪30年代，几个关于计算的数学模型
+ 哥德尔和克莱尼的递归函数模型 求其的Lambda演算模型 波斯特的Post机模型 图灵的图灵机模型    图灵机Turing Machine   1936年，Alan Turing提出的一种抽象计算模型
+ 基本思想是用机器模拟人们使用纸笔进行数学运算的过程，但比数值计算更为简答。    《The Imitation Game 2014》模仿游戏
+  图灵机的规则由五个部分来构成。
+  算法和计算复杂性   What：是什么？
+ 面向判断与分类的问题    Why：问什么？" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://jhweb.top/python/python/" />
+<meta property="article:published_time" content="2020-06-20T14:50:24+08:00" />
+<meta property="article:modified_time" content="2020-06-20T14:50:24+08:00" />
+
+
+  </head>
+  <body>
+    <header class="app-header">
+      <a href="https://jhweb.top"><img class="app-header-avatar" src="/avatar.jpg" alt="蒋浩文" /></a>
+      <h1>jhw 博客网站</h1>
+      <p>好好学习，天天向上。</p>
+      <div class="app-header-social">
+        
+          <a target="_blank" href="https://github.com/qyhx-jhw/" rel="noreferrer noopener"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github">
+  <title>github</title>
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+</svg></a>
+        
+          <a target="_blank" href="/about" rel="noreferrer noopener"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-home">
+  <title>home</title>
+  <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline>
+</svg></a>
+        
+      </div>
+    </header>
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">Python数据结构--概述</h1>
+      <div class="post-meta">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          
+          2020-06-20
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
+  <title>clock</title>
+  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+          阅读1 分钟
+        </div></div>
+    </header>
+    <div class="post-content">
+      <h1 id="一概述">一、概述</h1>
+<h2 id="数据">数据：</h2>
+<h4 id="电影超时空接触httpsmoviedoubancomsubject1295647">电影<a href="https://movie.douban.com/subject/1295647/">《超时空接触》</a></h4>
+<ul>
+<li>
+<p>问题：未知的事物？</p>
+</li>
+<li>
+<p>人类在生活生产，学习探索创造过程中遇到的未知事物</p>
+</li>
+<li>
+<p>如何从未知到已知</p>
+<ul>
+<li>感觉、经验、占卜、求神、</li>
+<li>逻辑、数学、实验、</li>
+<li>工程、 计算、</li>
+<li>模型、模拟、仿真、</li>
+<li>哲学？</li>
+</ul>
+</li>
+<li>
+<p>提出有穷观点的能行方法概念是：希尔伯特</p>
+<ul>
+<li>由有限数量的明确有限指令构成</li>
+<li>指令执行在有限步骤后终止</li>
+<li>指令每次执行都总能得到唯一结果</li>
+<li>原则上可以由单独采用纸笔完成，而不是依靠其它辅助</li>
+<li>每一条指令可以机械的被精确的执行，而不需要智慧和灵感</li>
+</ul>
+</li>
+<li>
+<p>20世纪30年代，几个关于计算的数学模型</p>
+<ul>
+<li>哥德尔和克莱尼的递归函数模型</li>
+<li>求其的Lambda演算模型</li>
+<li>波斯特的Post机模型</li>
+<li>图灵的图灵机模型</li>
+</ul>
+</li>
+</ul>
+<h2 id="图灵机turing-machinehttpsbaikebaiducomiteme59bbee781b5e69cba2112989fraladdin"><a href="https://baike.baidu.com/item/%E5%9B%BE%E7%81%B5%E6%9C%BA/2112989?fr=aladdin">图灵机Turing Machine</a></h2>
+<ul>
+<li>
+<p>1936年，Alan Turing提出的一种抽象计算模型</p>
+<ul>
+<li>基本思想是用机器模拟人们使用纸笔进行数学运算的过程，但比数值计算更为简答。</li>
+</ul>
+</li>
+<li>
+<p>《The Imitation Game 2014》模仿游戏</p>
+</li>
+<li>
+<p>图灵机的规则由五个部分来构成。</p>
+</li>
+</ul>
+<h2 id="算法和计算复杂性">算法和计算复杂性</h2>
+<ul>
+<li>
+<p>What：是什么？</p>
+<ul>
+<li>面向判断与分类的问题</li>
+</ul>
+</li>
+<li>
+<p>Why：问什么？</p>
+<ul>
+<li>面向求因与证明的问题</li>
+</ul>
+</li>
+<li>
+<p>How：怎么做？</p>
+<ul>
+<li>面向过程与结构的问题。</li>
+</ul>
+</li>
+<li>
+<p>辗转相除法：除数和余数一直做除法，知道除尽商为零</p>
+</li>
+<li>
+<p>有些问题又解法，但是没什么可行性，如哈密度顿回路，货郎担问题。</p>
+</li>
+</ul>
+
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+    </main>
+  </body>
+</html>

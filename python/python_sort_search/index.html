@@ -1,0 +1,472 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <title>Python：排序与查找 // jhw 博客网站</title>
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.73.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="蒋浩文" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="https://jhweb.top/css/main.min.366e0ee61030653c4f8925f9bd4a9db5b3c23b09a6fddf2bccb02e2426ecde43.css" />
+
+    
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Python：排序与查找"/>
+<meta name="twitter:description" content="课程来自于：数据结构与算法Python版&ndash;北京大学&ndash;陈斌老师 顺序查找Sequential Search  如果数据项保存在如列表这样的集合中我们会称这些数据项具有线性或者顺序关系。 在Python List中,这些数据项的存储位置称为下标( index) , 这些下标都是有序的整数。 通过下标,我们就可以按照顺序来访问和查找数据项,这种技术称为&quot;顺序查找” def sequentialSearch(alist, item): pos = 0 found = False while pos &lt; len(alist) and not found: if alist[pos] == item: found = True else: pos &#43;= 1 return found   二分查找 # 二分查找：有序表 def binarySearch(alist, item): first = 0 # 起点 last = len(alist) - 1 # 终点 found = False while first &lt;= last and not found: midpoint = (first &#43; last) // 2 # 中间下标 if alist[midpoint] == item: found = True else: if item &lt; alist[midpoint]: last = midpoint - 1 else: first = midpoint &#43; 1 return found 二分查找递归版本 def binarySearch(alist: list, item): if len(alist) == 0: return False else: midpoint = len(alist) // 2 # 在中间下标 if alist[midpoint] == item: return True else: if item &lt; alist[midpoint]: return binarySearch(alist[:midpoint], item) else: return binarySearch(alist[midpoint &#43; 1:], item) # &#43;1是包左不包右（左闭右开）  1."/>
+
+    <meta property="og:title" content="Python：排序与查找" />
+<meta property="og:description" content="课程来自于：数据结构与算法Python版&ndash;北京大学&ndash;陈斌老师 顺序查找Sequential Search  如果数据项保存在如列表这样的集合中我们会称这些数据项具有线性或者顺序关系。 在Python List中,这些数据项的存储位置称为下标( index) , 这些下标都是有序的整数。 通过下标,我们就可以按照顺序来访问和查找数据项,这种技术称为&quot;顺序查找” def sequentialSearch(alist, item): pos = 0 found = False while pos &lt; len(alist) and not found: if alist[pos] == item: found = True else: pos &#43;= 1 return found   二分查找 # 二分查找：有序表 def binarySearch(alist, item): first = 0 # 起点 last = len(alist) - 1 # 终点 found = False while first &lt;= last and not found: midpoint = (first &#43; last) // 2 # 中间下标 if alist[midpoint] == item: found = True else: if item &lt; alist[midpoint]: last = midpoint - 1 else: first = midpoint &#43; 1 return found 二分查找递归版本 def binarySearch(alist: list, item): if len(alist) == 0: return False else: midpoint = len(alist) // 2 # 在中间下标 if alist[midpoint] == item: return True else: if item &lt; alist[midpoint]: return binarySearch(alist[:midpoint], item) else: return binarySearch(alist[midpoint &#43; 1:], item) # &#43;1是包左不包右（左闭右开）  1." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://jhweb.top/python/python_sort_search/" />
+<meta property="article:published_time" content="2020-06-29T17:05:32+08:00" />
+<meta property="article:modified_time" content="2020-06-29T17:05:32+08:00" />
+
+
+  </head>
+  <body>
+    <header class="app-header">
+      <a href="https://jhweb.top"><img class="app-header-avatar" src="/avatar.jpg" alt="蒋浩文" /></a>
+      <h1>jhw 博客网站</h1>
+      <p>好好学习，天天向上。</p>
+      <div class="app-header-social">
+        
+          <a target="_blank" href="https://github.com/qyhx-jhw/" rel="noreferrer noopener"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github">
+  <title>github</title>
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+</svg></a>
+        
+          <a target="_blank" href="/about" rel="noreferrer noopener"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-home">
+  <title>home</title>
+  <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline>
+</svg></a>
+        
+      </div>
+    </header>
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">Python：排序与查找</h1>
+      <div class="post-meta">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          
+          2020-06-29
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
+  <title>clock</title>
+  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+          阅读5 分钟
+        </div></div>
+    </header>
+    <div class="post-content">
+      <h2 id="课程来自于数据结构与算法python版--北京大学--陈斌老师httpswwwicourse163orglearnpku-1206307812tid1450242471learnannounce">课程来自于：<a href="https://www.icourse163.org/learn/PKU-1206307812?tid=1450242471#/learn/announce/">数据结构与算法Python版&ndash;北京大学&ndash;陈斌老师</a></h2>
+<h1 id="顺序查找sequential-search">顺序查找Sequential Search</h1>
+<ul>
+<li>如果数据项保存在如列表这样的集合中我们会称这些数据项具有线性或者顺序关系。</li>
+<li>在Python List中,这些数据项的存储位置称为下标( index) , 这些下标都是有序的整数。</li>
+<li>通过下标,我们就可以按照顺序来访问和查找数据项,这种技术称为&quot;顺序查找”
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">  <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">sequentialSearch</span>(alist, item):
+      pos <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+      found <span style="color:#f92672">=</span> False
+
+      <span style="color:#66d9ef">while</span> pos <span style="color:#f92672">&lt;</span> len(alist) <span style="color:#f92672">and</span> <span style="color:#f92672">not</span> found:
+          <span style="color:#66d9ef">if</span> alist[pos] <span style="color:#f92672">==</span> item:
+              found <span style="color:#f92672">=</span> True
+          <span style="color:#66d9ef">else</span>:
+              pos <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+      <span style="color:#66d9ef">return</span> found
+</code></pre></div></li>
+</ul>
+<h1 id="二分查找">二分查找</h1>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># 二分查找：有序表</span>
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">binarySearch</span>(alist, item):
+    first <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span> <span style="color:#75715e"># 起点</span>
+    last <span style="color:#f92672">=</span> len(alist) <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span> <span style="color:#75715e"># 终点</span>
+    found <span style="color:#f92672">=</span> False
+
+    <span style="color:#66d9ef">while</span> first <span style="color:#f92672">&lt;=</span> last <span style="color:#f92672">and</span> <span style="color:#f92672">not</span> found:
+        midpoint <span style="color:#f92672">=</span> (first <span style="color:#f92672">+</span> last) <span style="color:#f92672">//</span> <span style="color:#ae81ff">2</span> <span style="color:#75715e"># 中间下标</span>
+        <span style="color:#66d9ef">if</span> alist[midpoint] <span style="color:#f92672">==</span> item:
+            found <span style="color:#f92672">=</span> True
+        <span style="color:#66d9ef">else</span>:
+            <span style="color:#66d9ef">if</span> item <span style="color:#f92672">&lt;</span> alist[midpoint]:
+                last <span style="color:#f92672">=</span> midpoint <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>
+            <span style="color:#66d9ef">else</span>:
+                first <span style="color:#f92672">=</span> midpoint <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>
+        <span style="color:#66d9ef">return</span> found
+</code></pre></div><h2 id="二分查找递归版本">二分查找递归版本</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">binarySearch</span>(alist: list, item):
+    <span style="color:#66d9ef">if</span> len(alist) <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>:
+        <span style="color:#66d9ef">return</span> False
+    <span style="color:#66d9ef">else</span>:
+        midpoint <span style="color:#f92672">=</span> len(alist) <span style="color:#f92672">//</span> <span style="color:#ae81ff">2</span> <span style="color:#75715e"># 在中间下标</span>
+        <span style="color:#66d9ef">if</span> alist[midpoint] <span style="color:#f92672">==</span> item:
+            <span style="color:#66d9ef">return</span> True
+        <span style="color:#66d9ef">else</span>:
+            <span style="color:#66d9ef">if</span> item <span style="color:#f92672">&lt;</span> alist[midpoint]:
+                <span style="color:#66d9ef">return</span> binarySearch(alist[:midpoint], item)
+            <span style="color:#66d9ef">else</span>:
+                <span style="color:#66d9ef">return</span> binarySearch(alist[midpoint <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>:], item)  <span style="color:#75715e"># +1是包左不包右（左闭右开）</span>
+</code></pre></div><hr>
+<h1 id="1冒泡排序">1.冒泡排序</h1>
+<ul>
+<li>冒泡排序的算法思路在于对无序表进行多趟比较交换,</li>
+<li>每趟包括了多次两两相邻比较,并将逆序的数据项互换位置,最终能将本趟的最大项就位</li>
+<li>经过n-1趟比较交换,实现整表排序</li>
+<li>每趟的过程类似于“气泡”在水中不断上浮到水面的经过</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">bubbleSort</span>(alist):
+    <span style="color:#66d9ef">for</span> passnum <span style="color:#f92672">in</span> range(len(alist) <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>):
+        <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(passnum):
+            <span style="color:#66d9ef">if</span> alist[i] <span style="color:#f92672">&gt;</span> alist[i <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>]:
+                alist[i], alist[i <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> alist[i <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>], alist[i]
+
+<span style="color:#75715e"># 冒泡排序：优化</span>
+<span style="color:#75715e"># 设置一个检测条件，如果没有发生交互和后面的就不需要比较节省时间</span>
+<span style="color:#75715e"># 无法修改复杂度</span>
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">shortbubbleSort</span>(alist):
+    exchanges <span style="color:#f92672">=</span> True
+    passnum <span style="color:#f92672">=</span> len(alist) <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>
+    <span style="color:#66d9ef">while</span> passnum <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">and</span> exchanges:
+        exchanges <span style="color:#f92672">=</span> False
+        <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(passnum):
+            <span style="color:#66d9ef">if</span> alist[i] <span style="color:#f92672">&gt;</span> alist[i <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>]:
+                exchanges <span style="color:#f92672">=</span> True <span style="color:#75715e">#如果exchange没有变为true发生交换就说明排序完成</span>
+                alist[i], alist[i <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> alist[i <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>], alist[i]
+        passnum <span style="color:#f92672">-=</span> <span style="color:#ae81ff">1</span>
+</code></pre></div><h1 id="数据结构与算法可视化httpsvisualgonetzh"><a href="https://visualgo.net/zh">数据结构与算法可视化</a></h1>
+<h1 id="2选择排序selection-sort">2.选择排序Selection Sort</h1>
+<ul>
+<li>选择排序对冒泡排序进行了改进，保留了其基本的多趟比对思路,每趟都使当前最大项就位。</li>
+<li>但选择排序对交换进行了削减,相比起冒泡排序进行多次交换,每趟仅进行1次交换，记录最大项的所在位置,最后再跟本趟最后- -项交换</li>
+<li>选择排序的时间复杂度比冒泡排序稍优</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># 选择排序，比冒泡改进</span>
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">selectionSort</span>(alist):
+    <span style="color:#75715e"># 逆序输出下标</span>
+    <span style="color:#66d9ef">for</span> fillslot <span style="color:#f92672">in</span> range(len(alist) <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>): 
+        positionOfMax <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+        <span style="color:#66d9ef">for</span> location <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">1</span>, fillslot <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>):
+            <span style="color:#66d9ef">if</span> alist[location] <span style="color:#f92672">&gt;</span> alist[positionOfMax]:
+
+                <span style="color:#75715e"># 记录最大的的值的下标</span>
+                positionOfMax <span style="color:#f92672">=</span> location
+
+        <span style="color:#75715e"># 每一趟结束后将最大的下标于最后一个位置交互</span>
+        alist[fillslot], alist[positionOfMax] <span style="color:#f92672">=</span> alist[positionOfMax], alist[fillslot]
+</code></pre></div><h1 id="3插入排序insertion-sort">3.插入排序Insertion Sort</h1>
+<ul>
+<li>插入排序时间复杂度仍然是0(n2) ,但算法思路与冒泡排序、选择排序不同</li>
+<li>插入排序维持-一个已排好序的子列表,其.位置始终在列表的前部,然后逐步扩大这个子列表直到全表</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># 插入排序</span>
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">insertionSort</span>(alist):
+    <span style="color:#66d9ef">for</span> index <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">1</span>, len(alist)):
+        currentvalue <span style="color:#f92672">=</span> alist[index]  <span style="color:#75715e"># 新项/插入项</span>
+        position <span style="color:#f92672">=</span> index
+        <span style="color:#66d9ef">while</span> position <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">and</span> alist[position <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>] <span style="color:#f92672">&gt;</span> currentvalue:  <span style="color:#75715e"># 对比、移动</span>
+            alist[position] <span style="color:#f92672">=</span> alist[position <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>]
+            position <span style="color:#f92672">-=</span> <span style="color:#ae81ff">1</span>
+        alist[position] <span style="color:#f92672">=</span> currentvalue  <span style="color:#75715e"># 插入新项</span>
+
+</code></pre></div><h2 id="4谢尔排序shell-sort">4.谢尔排序Shell sort</h2>
+<ul>
+<li>我们注意到插入排序的比对次数,在最好的情况下是0(n) ,这种情况发生在列表已是有序的情况下,实际上，列表越接近有序,插入排序的比对次数就越少</li>
+<li>从这个情况入手,谢尔排序以插入排序作为基础对无序表进行“间隔”划分子列表,每个子列表都执行插入排序</li>
+<li>随着子列表的数量越来越少,无序表的整体越来越接近有序,从而减少整体排序的比对次数</li>
+<li>间隔为3的子列表,子列表分别插入排序后的整体状况更接近有序</li>
+<li>必最后一趟是标准的插入排序,但由于前面几趟已经将列表处理到接近有序，这一趟仅需少数几次移动即可完成</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># 谢尔排序</span>
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">shellSort</span>(alist):
+    sublistcount <span style="color:#f92672">=</span> len(alist) <span style="color:#f92672">//</span> <span style="color:#ae81ff">2</span>
+    <span style="color:#66d9ef">while</span> sublistcount <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>:
+        <span style="color:#66d9ef">for</span> startposition <span style="color:#f92672">in</span> range(sublistcount):
+            gapInsertionSort(alist, startposition, sublistcount)
+
+        <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;After increment of size&#34;</span>, sublistcount, <span style="color:#e6db74">&#34;The list is &#34;</span>, alist)
+
+        sublistcount <span style="color:#f92672">=</span> sublistcount <span style="color:#f92672">//</span> <span style="color:#ae81ff">2</span>
+
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">gapInsertionSort</span>(alist, start, gap):
+    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(start <span style="color:#f92672">+</span> gap, len(alist), gap):
+        currentvalue <span style="color:#f92672">=</span> alist[i]
+        position <span style="color:#f92672">=</span> i
+        <span style="color:#66d9ef">while</span> position <span style="color:#f92672">&gt;=</span> gap <span style="color:#f92672">and</span> alist[position <span style="color:#f92672">-</span> gap] <span style="color:#f92672">&gt;</span> currentvalue:
+            alist[position] <span style="color:#f92672">=</span> alist[position <span style="color:#f92672">-</span> gap]
+            position <span style="color:#f92672">=</span> position <span style="color:#f92672">-</span> gap
+        alist[position] <span style="color:#f92672">=</span> currentvalue
+</code></pre></div><h1 id="5归并排序算法">5.归并排序算法</h1>
+<ul>
+<li>下面我们来看看分治策略在排序中的应用</li>
+<li>归并排序是递归算法,思路是将数据表持续分裂为两半,对两半分别进行归并排序
+<ul>
+<li>递归的基本结束条件是:数据表仅有1个数据项自然是排好序的;</li>
+<li>缩小规模:将数据表分裂为相等的两半，规模减为原来的二分之一;</li>
+<li>调用自身:将两半分别调用自身排序，然后将分别非好序的两半进行归并，得到排好序的数据表</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># 归并排序传统代码</span>
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">mergeSort</span>(alist):
+    <span style="color:#66d9ef">if</span> len(alist) <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">1</span>:
+        mid <span style="color:#f92672">=</span> len(alist) <span style="color:#f92672">//</span> <span style="color:#ae81ff">2</span>  <span style="color:#75715e"># 基本结束条件</span>
+        left_half <span style="color:#f92672">=</span> alist[:mid]
+        right_half <span style="color:#f92672">=</span> alist[mid:]
+
+        <span style="color:#75715e"># 递归调用</span>
+        mergeSort(left_half)
+        mergeSort(right_half)
+
+        i <span style="color:#f92672">=</span> j <span style="color:#f92672">=</span> k <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+
+        <span style="color:#75715e"># 拉链式交错吧左右半部最小的数放到alist列表中</span>
+        <span style="color:#66d9ef">while</span> i <span style="color:#f92672">&lt;</span> len(left_half) <span style="color:#f92672">and</span> j <span style="color:#f92672">&lt;</span> len(right_half):
+            <span style="color:#66d9ef">if</span> left_half[i] <span style="color:#f92672">&lt;</span> right_half[j]:
+                alist[k] <span style="color:#f92672">=</span> left_half[i]
+                i <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+            <span style="color:#66d9ef">else</span>:
+                alist[k] <span style="color:#f92672">=</span> right_half[j]
+                j <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+            k <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+            
+        <span style="color:#75715e"># 归并左半剩余部分</span>
+        <span style="color:#66d9ef">while</span> i <span style="color:#f92672">&lt;</span> len(left_half):
+            alist[k] <span style="color:#f92672">=</span> left_half[i]
+            i <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+            k <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+        <span style="color:#75715e"># 归并右半剩余部分</span>
+        <span style="color:#66d9ef">while</span> j <span style="color:#f92672">&lt;</span> len(right_half):
+            alist[k] <span style="color:#f92672">=</span> right_half[j]
+            j <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+            k <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+
+<span style="color:#75715e"># python版本归并排序</span>
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">mergeSort</span>(alist):
+    <span style="color:#75715e"># 递归结束条件</span>
+    <span style="color:#66d9ef">if</span> len(alist) <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">1</span>:
+        <span style="color:#66d9ef">return</span> alist
+    
+    <span style="color:#75715e"># 分解问题，并递归调用</span>
+    middle <span style="color:#f92672">=</span> len(alist) <span style="color:#f92672">//</span> <span style="color:#ae81ff">2</span>
+    left <span style="color:#f92672">=</span> mergeSort(alist[:middle])
+    right <span style="color:#f92672">=</span> mergeSort(alist[middle:])
+    
+    <span style="color:#75715e"># 合并左右半部，完成排序</span>
+    merged <span style="color:#f92672">=</span> []
+    <span style="color:#66d9ef">while</span> left <span style="color:#f92672">and</span> right:
+        <span style="color:#66d9ef">if</span> left[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">&lt;=</span> right[<span style="color:#ae81ff">0</span>]:
+            merged<span style="color:#f92672">.</span>append(left<span style="color:#f92672">.</span>pop(<span style="color:#ae81ff">0</span>))
+        <span style="color:#66d9ef">else</span>:
+            merged<span style="color:#f92672">.</span>append(right<span style="color:#f92672">.</span>pop(<span style="color:#ae81ff">0</span>))
+
+    merged<span style="color:#f92672">.</span>extend(right <span style="color:#66d9ef">if</span> right <span style="color:#66d9ef">else</span> left)
+    <span style="color:#66d9ef">return</span> merged
+
+</code></pre></div><h1 id="6快速排序quick-sort">6.快速排序Quick Sort</h1>
+<ul>
+<li>快速排序的思路是依据一个“中值”数据项来把数据表分为两半:小于中值的&ndash;半和大于中值的一半,然后每部分分别进行快速排序(递归)
+<ul>
+<li>
+<p>如果希望这两半拥有相等数量的数据项，则应该找到数据表的“中位数</p>
+</li>
+<li>
+<p>但找中位数需要计算开销!要想没有开销，只能随意找一个数来充当“中值”</p>
+</li>
+<li>
+<p>比如，第1个数。</p>
+</li>
+</ul>
+<h4 id="快速排序quick-sort">快速排序Quick Sort</h4>
+<ul>
+<li>
+<p>快速排序的递归算法“递归3 E要素”如下</p>
+</li>
+<li>
+<p>基本结束条件:数据表仅有1个数据项,自然是排好序的</p>
+</li>
+<li>
+<p>缩小规模:根据“中值”将数据表分为两半,最好情况是相等规模的两半</p>
+</li>
+<li>
+<p>调用自身:将两半分别调用自身进行排序(排序基本操作在分裂过程中)</p>
+</li>
+</ul>
+<h4 id="快速排序图示">快速排序:图示</h4>
+<ul>
+<li>必分裂数据表的目标:找到“中值”的位置</li>
+<li>各分裂数据表的手段
+<ul>
+<li>设置左右标(1eft/rightmark)</li>
+<li>左标向右移动，右标向左移动
+<ul>
+<li>左标一直向右移动，碰到比中值大的就停止</li>
+<li>右标一直向左移动，碰到比中值小的就停止</li>
+<li>然后把左右标所指的数据项交换</li>
+</ul>
+</li>
+<li>继续移动，直到左标移到右标的右侧，停止移动</li>
+<li>这时右标所指位置就是“中值”应处的位置将中值和这个位置交换</li>
+<li>分裂完成，左半部比中值小，右半部比中值大.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># 快速排序</span>
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">partition</span>(alist, first, last):
+    pivot_value <span style="color:#f92672">=</span> alist[first]  <span style="color:#75715e"># 选’中值</span>
+
+    left_mark <span style="color:#f92672">=</span> first <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>  <span style="color:#75715e"># 左初值</span>
+    right_mark <span style="color:#f92672">=</span> last  <span style="color:#75715e"># 右初值</span>
+    done <span style="color:#f92672">=</span> False
+    <span style="color:#66d9ef">while</span> <span style="color:#f92672">not</span> done:
+        <span style="color:#66d9ef">while</span> left_mark <span style="color:#f92672">&lt;=</span> right_mark <span style="color:#f92672">and</span> alist[left_mark] <span style="color:#f92672">&lt;=</span> pivot_value:
+            left_mark <span style="color:#f92672">=</span> left_mark <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>
+        <span style="color:#66d9ef">while</span> left_mark <span style="color:#f92672">&lt;=</span> right_mark <span style="color:#f92672">and</span> alist[right_mark] <span style="color:#f92672">&gt;=</span> pivot_value:
+            right_mark <span style="color:#f92672">=</span> right_mark <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>
+
+        <span style="color:#66d9ef">if</span> right_mark <span style="color:#f92672">&lt;</span> left_mark:
+            done <span style="color:#f92672">=</span> True
+        <span style="color:#66d9ef">else</span>:
+            alist[left_mark], alist[right_mark] <span style="color:#f92672">=</span> alist[right_mark], alist[left_mark]
+
+    alist[first], alist[right_mark] <span style="color:#f92672">=</span> alist[right_mark], alist[first]
+    <span style="color:#66d9ef">return</span> right_mark
+
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">quickSortHelper</span>(alist, first, last):
+    <span style="color:#66d9ef">if</span> first <span style="color:#f92672">&lt;</span> last:
+        splitpoint <span style="color:#f92672">=</span> partition(alist, first, last)
+        quickSortHelper(alist, first, splitpoint <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>)
+        quickSortHelper(alist, splitpoint <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>, last)
+
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">quckSort</span>(alist):
+    quickSortHelper(alist, <span style="color:#ae81ff">0</span>, len(alist) <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>)
+
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">quckSort</span>(alist):
+    quickSortHelper(alist, <span style="color:#ae81ff">0</span>, len(alist) <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>)
+alist <span style="color:#f92672">=</span> [<span style="color:#ae81ff">54</span>, <span style="color:#ae81ff">26</span>, <span style="color:#ae81ff">93</span>, <span style="color:#ae81ff">17</span>, <span style="color:#ae81ff">77</span>, <span style="color:#ae81ff">31</span>, <span style="color:#ae81ff">44</span>, <span style="color:#ae81ff">55</span>, <span style="color:#ae81ff">20</span>]
+<span style="color:#66d9ef">print</span>(alist)
+quckSort(alist)
+<span style="color:#66d9ef">print</span>(alist)
+
+</code></pre></div><h1 id="7散列表">7.散列表</h1>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># 映射抽象数据类型，散列函数实现</span>
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">HashTable</span>:
+    <span style="color:#66d9ef">def</span> __init__(self):
+        self<span style="color:#f92672">.</span>size <span style="color:#f92672">=</span> <span style="color:#ae81ff">11</span>
+        self<span style="color:#f92672">.</span>slots <span style="color:#f92672">=</span> [None] <span style="color:#f92672">*</span> self<span style="color:#f92672">.</span>size
+        self<span style="color:#f92672">.</span>data <span style="color:#f92672">=</span> [None] <span style="color:#f92672">*</span> self<span style="color:#f92672">.</span>size
+
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">hashfunction</span>(self, key):
+        <span style="color:#66d9ef">return</span> key <span style="color:#f92672">%</span> self<span style="color:#f92672">.</span>size
+
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">rehash</span>(self, oldhash):
+        <span style="color:#66d9ef">return</span> (oldhash <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>) <span style="color:#f92672">%</span> self<span style="color:#f92672">.</span>size
+
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">put</span>(self, key, data):
+        hash_value <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>hashfunction(key)  <span style="color:#75715e"># 散列值为下标</span>
+        <span style="color:#75715e"># 没有值就添加</span>
+        <span style="color:#66d9ef">if</span> self<span style="color:#f92672">.</span>slots[hash_value] <span style="color:#f92672">is</span> None:
+            self<span style="color:#f92672">.</span>slots[hash_value] <span style="color:#f92672">=</span> key
+            self<span style="color:#f92672">.</span>data[hash_value] <span style="color:#f92672">=</span> data
+        <span style="color:#66d9ef">else</span>:
+            <span style="color:#75715e"># 有值，判断key是否一致</span>
+            <span style="color:#66d9ef">if</span> self<span style="color:#f92672">.</span>slots[hash_value] <span style="color:#f92672">==</span> key:
+                self<span style="color:#f92672">.</span>data[hash_value] <span style="color:#f92672">=</span> data
+            <span style="color:#66d9ef">else</span>:
+                <span style="color:#75715e"># 不一致</span>
+                nextslot <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>rehash(hash_value)  <span style="color:#75715e"># 拿到新的定位地址</span>
+                <span style="color:#66d9ef">while</span> self<span style="color:#f92672">.</span>slots[nextslot] <span style="color:#f92672">is</span> <span style="color:#f92672">not</span> None <span style="color:#f92672">and</span> self<span style="color:#f92672">.</span>slots[nextslot] <span style="color:#f92672">!=</span> key:  <span style="color:#75715e"># 是否有值并且与key不相等：说明已经站住数据</span>
+                    nextslot <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>rehash(nextslot)  <span style="color:#75715e"># 拿新的地址</span>
+
+                <span style="color:#66d9ef">if</span> self<span style="color:#f92672">.</span>slots[nextslot] <span style="color:#f92672">is</span> None:  <span style="color:#75715e"># 新的地址为空则添加</span>
+                    self<span style="color:#f92672">.</span>slots[nextslot] <span style="color:#f92672">=</span> key
+                    self<span style="color:#f92672">.</span>data[nextslot] <span style="color:#f92672">=</span> data
+                <span style="color:#66d9ef">else</span>:
+                    self<span style="color:#f92672">.</span>data[nextslot] <span style="color:#f92672">=</span> data
+
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">get</span>(self, key):
+        <span style="color:#75715e"># 标记散列值的查找起点</span>
+        startslot <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>hashfunction(key)
+        data <span style="color:#f92672">=</span> None
+        stop <span style="color:#f92672">=</span> False
+        found <span style="color:#f92672">=</span> False
+        position <span style="color:#f92672">=</span> startslot
+        <span style="color:#75715e"># 找key直到空槽或回到起点</span>
+        <span style="color:#66d9ef">while</span> self<span style="color:#f92672">.</span>slots[position] <span style="color:#f92672">is</span> <span style="color:#f92672">not</span> None <span style="color:#f92672">and</span> <span style="color:#f92672">not</span> found <span style="color:#f92672">and</span> <span style="color:#f92672">not</span> stop:
+
+            <span style="color:#75715e"># 找到就返回data</span>
+            <span style="color:#66d9ef">if</span> self<span style="color:#f92672">.</span>slots[position] <span style="color:#f92672">==</span> key:
+                found <span style="color:#f92672">=</span> True
+                data <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>data[position]
+            <span style="color:#66d9ef">else</span>:
+                <span style="color:#75715e"># 没找到</span>
+                position <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>rehash(position)
+                <span style="color:#75715e"># 当一直到起点还没找到，停止</span>
+                <span style="color:#66d9ef">if</span> position <span style="color:#f92672">==</span> startslot:
+                    stop <span style="color:#f92672">=</span> True
+        <span style="color:#66d9ef">return</span> data
+
+    <span style="color:#75715e"># 通过下标找出值</span>
+    <span style="color:#66d9ef">def</span> __getitem__(self, key):
+        <span style="color:#66d9ef">return</span> self<span style="color:#f92672">.</span>get(key)
+
+    <span style="color:#75715e"># 赋值使用</span>
+    <span style="color:#66d9ef">def</span> __setitem__(self, key, data):
+        self<span style="color:#f92672">.</span>put(key, data)
+
+H <span style="color:#f92672">=</span> HashTable()
+
+</code></pre></div><hr>
+<h1 id="排序与查找小结">排序与查找小结：</h1>
+<ul>
+<li>
+<p>在无序表或者有序表上的顺序查找，其时间复杂度为O(n)</p>
+</li>
+<li>
+<p>在有序表上进行二分查找，器最差复杂度为O（log n）</p>
+</li>
+<li>
+<p>散列表可以实现常数级时间的查找</p>
+</li>
+<li>
+<p>完美散列海曙作为数据一致性校验，应用很广</p>
+</li>
+<li>
+<p>区块链技术是一种去中心化的分布式数据库，通过“工作量证明”机制来维持运行</p>
+</li>
+<li>
+<p>冒泡、选择和插入排序是O(n^2)的算法</p>
+</li>
+<li>
+<p>谢尔排序在插入排序的基础.上进行了改进,采用对递增子表排序的方法,其时间复杂度可以在O(n)和O(n2)之间</p>
+</li>
+<li>
+<p>归并排序的时间复杂度是O(nlog n) .但归并的过程需要额外存储空间</p>
+</li>
+<li>
+<p>快速排序最好的时间复杂度是O(nlog n),也不需要额外的存储空间,但如果分裂点偏离列表中心的话,最坏情况下会退化到O(n2)</p>
+</li>
+</ul>
+
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+    </main>
+  </body>
+</html>
