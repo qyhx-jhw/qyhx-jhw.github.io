@@ -69,7 +69,7 @@
         </div></div>
     </header>
     <div class="post-content">
-      <h1 id="一监测程序">一.监测程序</h1>
+      <h2 id="一监测程序">一.监测程序</h2>
 <ol>
 <li>
 <p>探查进程</p>
@@ -448,81 +448,41 @@
 </li>
 <li>
 <p>结束进程</p>
-<h4 id="在linux中进程之间通过信号来通信">在Linux中，进程之间通过信号来通信。</h4>
-<hr>
-<table>
-<thead>
-<tr>
-<th align="center">信号</th>
-<th align="center">名称</th>
-<th align="center">描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center">1</td>
-<td align="center">HUP</td>
-<td align="center">挂起</td>
-</tr>
-<tr>
-<td align="center">2</td>
-<td align="center">INT</td>
-<td align="center">中断</td>
-</tr>
-<tr>
-<td align="center">3</td>
-<td align="center">QUIT</td>
-<td align="center">结束运行</td>
-</tr>
-<tr>
-<td align="center">9</td>
-<td align="center">KILL</td>
-<td align="center">无条件终止</td>
-</tr>
-<tr>
-<td align="center">11</td>
-<td align="center">SEGV</td>
-<td align="center">段错误</td>
-</tr>
-<tr>
-<td align="center">15</td>
-<td align="center">TERM</td>
-<td align="center">尽可能终止</td>
-</tr>
-<tr>
-<td align="center">17</td>
-<td align="center">STOP</td>
-<td align="center">无条件停止运行，但不终止</td>
-</tr>
-<tr>
-<td align="center">18</td>
-<td align="center">TSTP</td>
-<td align="center">停止或暂停，但继续在后台运行</td>
-</tr>
-<tr>
-<td align="center">19</td>
-<td align="center">CONT</td>
-<td align="center">在 STOP 或 TSTP 之后恢复执行</td>
-</tr>
-</tbody>
-</table>
-<hr>
-<ul>
-<li>kill命令：kill 命令可通过进程ID（PID）给进程发信号</li>
-<li>killall命令：killall 命令非常强大，它支持通过进程名而不是PID来结束进程。</li>
-</ul>
 </li>
 </ol>
-<h1 id="二检测磁盘空间">二.检测磁盘空间</h1>
+<h2 id="在linux中进程之间通过信号来通信">在Linux中，进程之间通过信号来通信</h2>
+<pre><code>---
+| 信号  | 名称  |             描述             |
+| :---: | :---: | :--------------------------: |
+|   1   |  HUP  |             挂起             |
+|   2   |  INT  |             中断             |
+|   3   | QUIT  |           结束运行           |
+|   9   | KILL  |          无条件终止          |
+|  11   | SEGV  |            段错误            |
+|  15   | TERM  |          尽可能终止          |
+|  17   | STOP  |   无条件停止运行，但不终止   |
+|  18   | TSTP  | 停止或暂停，但继续在后台运行 |
+|  19   | CONT  | 在 STOP 或 TSTP 之后恢复执行 |
+---
+* kill命令：kill 命令可通过进程ID（PID）给进程发信号
+* killall命令：killall 命令非常强大，它支持通过进程名而不是PID来结束进程。
+</code></pre>
+<h2 id="二检测磁盘空间">二.检测磁盘空间</h2>
 <ol>
-<li>
-<p>mount命令称为挂载。mount 命令会输出当前系统上挂载的设备列表。</p>
+<li>mount命令称为挂载。mount 命令会输出当前系统上挂载的设备列表。</li>
+</ol>
 <ul>
-<li>媒体的设备文件名</li>
-<li>媒体挂载的虚拟目录的挂载点</li>
-<li>文件系统类型</li>
-<li>已挂载媒体的访问状态</li>
-</ul>
+<li>
+<p>媒体的设备文件名</p>
+</li>
+<li>
+<p>媒体挂载的虚拟目录的挂载点</p>
+</li>
+<li>
+<p>文件系统类型</p>
+</li>
+<li>
+<p>已挂载媒体的访问状态</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#f92672">[</span>root@CentOS7 ~<span style="color:#f92672">]</span><span style="color:#75715e">#mount</span>
 sysfs on /sys type sysfs <span style="color:#f92672">(</span>rw,nosuid,nodev,noexec,relatime,seclabel<span style="color:#f92672">)</span>
 proc on /proc type proc <span style="color:#f92672">(</span>rw,nosuid,nodev,noexec,relatime<span style="color:#f92672">)</span>
@@ -533,14 +493,14 @@ devpts on /dev/pts type devpts <span style="color:#f92672">(</span>rw,nosuid,noe
 ......
 
 </code></pre></div></li>
-<li>
-<p>使用df命令</p>
+</ul>
+<ol start="2">
+<li>使用df命令
 <ul>
 <li>df命令可以查看所有已挂载磁盘的时使用情况</li>
 </ul>
 </li>
-<li>
-<p>使用du命令</p>
+<li>使用du命令
 <ul>
 <li>du 命令可以显示某个特定目录（默认情况下是当前目录）的
 磁盘使用情况。这一方法可用来快速判断系统上某个目录下是不是有超大文件</li>
@@ -575,33 +535,32 @@ devpts on /dev/pts type devpts <span style="color:#f92672">(</span>rw,nosuid,noe
 </li>
 </ul>
 <ol start="3">
-<li>
-<p>压缩数据</p>
+<li>压缩数据
 <ol>
 <li>gzip软件包是GNU项目的产物，意在编写一个能够替代原先Unix中 compress 工具的免费版
 本。这个软件包含有下面的工具。
 gzip ：用来压缩文件。
 gzcat ：用来查看压缩过的文本文件的内容。
 gunzip ：用来解压文件。</li>
-<li>批量压缩，使用通配符
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">     gzip my*
-    $ ls -l my*
-    -rwxr--r-- <span style="color:#ae81ff">1</span> rich rich <span style="color:#ae81ff">103</span> Sep <span style="color:#ae81ff">6</span> 13:43 myprog.c.gz
-    -rwxr-xr-x <span style="color:#ae81ff">1</span> rich rich <span style="color:#ae81ff">5178</span> Sep <span style="color:#ae81ff">6</span> 13:43 myprog.gz
-    -rwxr--r-- <span style="color:#ae81ff">1</span> rich rich <span style="color:#ae81ff">59</span> Sep <span style="color:#ae81ff">6</span> 13:46 myscript.gz
-    -rwxr--r-- <span style="color:#ae81ff">1</span> rich rich <span style="color:#ae81ff">60</span> Sep <span style="color:#ae81ff">6</span> 13:44 myscript2.gz
-</code></pre></div></li>
+<li>批量压缩，使用通配符</li>
 </ol>
 </li>
-<li>
-<p>归档数据</p>
-<p><img src="/Linux_tar%E5%8F%82%E6%95%B0.png" alt="tar"></p>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">      gzip my*
+   $ ls -l my*
+   -rwxr--r-- <span style="color:#ae81ff">1</span> rich rich <span style="color:#ae81ff">103</span> Sep <span style="color:#ae81ff">6</span> 13:43 myprog.c.gz
+   -rwxr-xr-x <span style="color:#ae81ff">1</span> rich rich <span style="color:#ae81ff">5178</span> Sep <span style="color:#ae81ff">6</span> 13:43 myprog.gz
+   -rwxr--r-- <span style="color:#ae81ff">1</span> rich rich <span style="color:#ae81ff">59</span> Sep <span style="color:#ae81ff">6</span> 13:46 myscript.gz
+   -rwxr--r-- <span style="color:#ae81ff">1</span> rich rich <span style="color:#ae81ff">60</span> Sep <span style="color:#ae81ff">6</span> 13:44 myscript2.gz
+</code></pre></div><ol start="4">
+<li>归档数据
+<img src="/Linux_tar%E5%8F%82%E6%95%B0.png" alt="tar">
 <ol>
 <li>tar 命令:tar function [options] object1 object2 &hellip;</li>
 </ol>
 </li>
 </ol>
-<h1 id="小结">小结</h1>
+<h2 id="小结">小结</h2>
 <ul>
 <li>讨论了Linux系统管理员和程序员用到的一些高级bash命令。 ps 和 top 命令在判断系统的状态时特别重要，能看到哪些应用在运行以及它们消耗了多少资源。</li>
 <li>在可移动存储普及的今天，系统管理员常谈到的另一个话题就是挂载存储设备。 mount 命令可以将一个物理存储设备挂载到Linux虚拟目录结构上。 umount 命令用来移除设备。</li>
