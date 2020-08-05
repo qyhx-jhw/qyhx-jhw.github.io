@@ -6,7 +6,7 @@
     <description>Recent content on jhw 博客网站</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 01 Aug 2020 15:37:47 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 03 Aug 2020 16:49:08 +0800</lastBuildDate>
     
 	<atom:link href="https://jhweb.top/index.xml" rel="self" type="application/rss+xml" />
     
@@ -79,11 +79,11 @@
     </item>
     
     <item>
-      <title>Python_进程与线程</title>
-      <link>https://jhweb.top/python/python_%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B/</link>
+      <title>Python_线程和进程</title>
+      <link>https://jhweb.top/python/python_%E8%BF%9B%E7%A8%8B%E5%92%8C%E7%BA%BF%E7%A8%8B/</link>
       <pubDate>Sat, 01 Aug 2020 15:37:47 +0800</pubDate>
       
-      <guid>https://jhweb.top/python/python_%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B/</guid>
+      <guid>https://jhweb.top/python/python_%E8%BF%9B%E7%A8%8B%E5%92%8C%E7%BA%BF%E7%A8%8B/</guid>
       <description>并发 一、基本概念 二、并发和并行的区别   并行，parallel
  同时做某些事，看可以互不干扰的同一时刻做几件事 举例，告诉公路的车道，双向四车道，所有车辆可以互不干扰的自己的车道上跑。    并发，concurrency
  同时做某些事，但是强调，同一时段做了几件事    三、并发的解决 “打饭模型” 中午12点，开饭，涌入食堂，就是并发，人很多就是高并发。
@@ -110,6 +110,18 @@
   进程和程序的关系。
   程序是源代码编译后的文件，而这些文件存放在磁盘上。当程序被操作系统加载到内存中，就是进程，进程中存放着指令和数据（资源），它也是线程的容器。
   Linux进程有父进程，子进程，Windows的进程是平等关系。</description>
+    </item>
+    
+    <item>
+      <title>Python_多线程</title>
+      <link>https://jhweb.top/python/python_%E5%A4%9A%E7%BA%BF%E7%A8%8B/</link>
+      <pubDate>Mon, 03 Aug 2020 16:49:08 +0800</pubDate>
+      
+      <guid>https://jhweb.top/python/python_%E5%A4%9A%E7%BA%BF%E7%A8%8B/</guid>
+      <description>多线程 顾名思义多个线程，一个进程中如果有多个线程，实现一种并发。
+一、线程安全 daemon线程和non-daemon线程     名称 含义     daemon属性 表示现场是否是daemon线程，这个值必须在start（）之前设置，否则引发RuntimeError异常   isDaemon（） 是否是daemon线程   setDaemon 设置daemon线程，必须在start方法之前设置       non-daemon的情况：daemon=False或者默认不设置
+from threading import Thread from time import sleep import threading, logging logging.basicConfig(level=logging.INFO, ) def work(): for _ in range(10): msg = f&amp;#39;{threading.current_thread()}&amp;#39; logging.info(msg) t = Thread(target=work, name=&amp;#39;w1&amp;#39;, daemon=False) t.start() print(&amp;#39;end&amp;#39;) 结果
+end INFO:root:&amp;lt;Thread(w1, started 13144)&amp;gt;--0 INFO:root:&amp;lt;Thread(w1, started 13144)&amp;gt;--1 INFO:root:&amp;lt;Thread(w1, started 13144)&amp;gt;--2 INFO:root:&amp;lt;Thread(w1, started 13144)&amp;gt;--3 INFO:root:&amp;lt;Thread(w1, started 13144)&amp;gt;--4 INFO:root:&amp;lt;Thread(w1, started 13144)&amp;gt;--5 INFO:root:&amp;lt;Thread(w1, started 13144)&amp;gt;--6 INFO:root:&amp;lt;Thread(w1, started 13144)&amp;gt;--7 INFO:root:&amp;lt;Thread(w1, started 13144)&amp;gt;--8 INFO:root:&amp;lt;Thread(w1, started 13144)&amp;gt;--9   deamon的情况：deamon=True</description>
     </item>
     
     <item>

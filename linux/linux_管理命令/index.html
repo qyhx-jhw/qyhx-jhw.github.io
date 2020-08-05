@@ -442,7 +442,7 @@
 <ul>
 <li>
 <p>top显示进程信息，它能实时显示</p>
-<p><img src="/top%E5%91%BD%E4%BB%A4.png" alt="top"></p>
+<p><img src="/png/top%E5%91%BD%E4%BB%A4.png" alt="top"></p>
 </li>
 </ul>
 </li>
@@ -451,22 +451,68 @@
 </li>
 </ol>
 <h2 id="在linux中进程之间通过信号来通信">在Linux中，进程之间通过信号来通信</h2>
-<pre><code>---
-| 信号  | 名称  |             描述             |
-| :---: | :---: | :--------------------------: |
-|   1   |  HUP  |             挂起             |
-|   2   |  INT  |             中断             |
-|   3   | QUIT  |           结束运行           |
-|   9   | KILL  |          无条件终止          |
-|  11   | SEGV  |            段错误            |
-|  15   | TERM  |          尽可能终止          |
-|  17   | STOP  |   无条件停止运行，但不终止   |
-|  18   | TSTP  | 停止或暂停，但继续在后台运行 |
-|  19   | CONT  | 在 STOP 或 TSTP 之后恢复执行 |
----
-* kill命令：kill 命令可通过进程ID（PID）给进程发信号
-* killall命令：killall 命令非常强大，它支持通过进程名而不是PID来结束进程。
-</code></pre>
+<hr>
+<table>
+<thead>
+<tr>
+<th align="center">信号</th>
+<th align="center">名称</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">1</td>
+<td align="center">HUP</td>
+<td align="center">挂起</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="center">INT</td>
+<td align="center">中断</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="center">QUIT</td>
+<td align="center">结束运行</td>
+</tr>
+<tr>
+<td align="center">9</td>
+<td align="center">KILL</td>
+<td align="center">无条件终止</td>
+</tr>
+<tr>
+<td align="center">11</td>
+<td align="center">SEGV</td>
+<td align="center">段错误</td>
+</tr>
+<tr>
+<td align="center">15</td>
+<td align="center">TERM</td>
+<td align="center">尽可能终止</td>
+</tr>
+<tr>
+<td align="center">17</td>
+<td align="center">STOP</td>
+<td align="center">无条件停止运行，但不终止</td>
+</tr>
+<tr>
+<td align="center">18</td>
+<td align="center">TSTP</td>
+<td align="center">停止或暂停，但继续在后台运行</td>
+</tr>
+<tr>
+<td align="center">19</td>
+<td align="center">CONT</td>
+<td align="center">在 STOP 或 TSTP 之后恢复执行</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<ul>
+<li>kill命令：kill 命令可通过进程ID（PID）给进程发信号</li>
+<li>killall命令：killall 命令非常强大，它支持通过进程名而不是PID来结束进程。</li>
+</ul>
 <h2 id="二检测磁盘空间">二.检测磁盘空间</h2>
 <ol>
 <li>mount命令称为挂载。mount 命令会输出当前系统上挂载的设备列表。</li>
@@ -511,7 +557,7 @@ devpts on /dev/pts type devpts <span style="color:#f92672">(</span>rw,nosuid,noe
 <ol>
 <li>sort命令：</li>
 </ol>
-<p><img src="/Linux_sort%E5%8F%82%E6%95%B0%E8%A1%A8.png" alt="sort参数"></p>
+<p><img src="/png/Linux_sort%E5%8F%82%E6%95%B0%E8%A1%A8.png" alt="sort参数"></p>
 <ul>
 <li>sort 命令是对数据进行排序的。默认情况下， sort 命令按照会话指定的默认语言的排序规则对文本文件中的数据行排序。
 <ul>
@@ -553,8 +599,9 @@ gunzip ：用来解压文件。</li>
    -rwxr--r-- <span style="color:#ae81ff">1</span> rich rich <span style="color:#ae81ff">59</span> Sep <span style="color:#ae81ff">6</span> 13:46 myscript.gz
    -rwxr--r-- <span style="color:#ae81ff">1</span> rich rich <span style="color:#ae81ff">60</span> Sep <span style="color:#ae81ff">6</span> 13:44 myscript2.gz
 </code></pre></div><ol start="4">
-<li>归档数据
-<img src="/Linux_tar%E5%8F%82%E6%95%B0.png" alt="tar">
+<li>
+<p>归档数据</p>
+<p><img src="/png/Linux_tar%E5%8F%82%E6%95%B0.png" alt="tar"></p>
 <ol>
 <li>tar 命令:tar function [options] object1 object2 &hellip;</li>
 </ol>
