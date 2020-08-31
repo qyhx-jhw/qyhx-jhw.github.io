@@ -1,0 +1,571 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <title>ES6 // jhw 博客网站</title>
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.73.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="蒋浩文" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="https://jhweb.top/css/main.min.366e0ee61030653c4f8925f9bd4a9db5b3c23b09a6fddf2bccb02e2426ecde43.css" />
+
+    
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="ES6"/>
+<meta name="twitter:description" content="JS  Javascript简称js，是一种动态弱类型脚本解释性语言，和HTML，CSS并称三大WEB核心技术，得到了几乎主流浏览器支持。 1994年，网景Netscape公司成立并发布Netscape Navigator浏览器，占据了很大的实参份额，网景意识到WEB需要动态，需要一种技术来实现 1995年9月网景浏览器2发布测试版本发布了liveScript,随即在12月的测试版就更名为Javascript。 1997年，网景、微软、sun、Borlan公司和其他组织在ECMA确定了ECMAScript语言标准。js则是ECMAscript标准的实现之一。 由于IE的捆绑销售，网景的单一浏览器市场萎缩，从1990年代的90%下降到2006年的1%。 1999年网景被AOL收购，收购后不久，Netscape公开浏览器代码，并创建了Mozilla组织。Mozilla组织使用Gecok引擎重写浏览器，当然Mozilla组织将Gecok引擎发布了Firefox浏览器。 2003年5月，网景解散。 AOL于2007年12月宣传支持Netscaoe浏览器。  网景的技术  HTTP Cookie，解决HTTP无状态 JavaScript SSL协议 JAR格式文件，将Java的class文件打包压缩，并加上签名 2012年4月9日，微软以10亿5千6百万美元购买800项美国在线的专利或专利授权，专家们认为网景的SSL，Cookie等专利可能是 微软愿意出高价的理由之一【wiki百科】  ES   ES,ECMAScript是由ECMA国际(前身为欧洲计算机制造商协会，英文名是European Computer Manufacturers Association)通过ECMA-262标准化的脚本程序设计语言。该语言被广泛应用于互联网。
+  Javascript是商品名，目前商标权Oracle公司手中。ES是标准名。
+  根据ES标准，有很多实现引擎，其中包括JavaScript或jscript，它们都是ECMA-262标准的实现和扩展。
+  为什么之前浏览器兼容是大问题？
+ 运行HTML、CSS、Js技术都在发展，标准版本很多。浏览器内嵌的引擎是西安不太一致，甚至有不按照标准实现，或减少实现，或改变实现，或增加功能的实现，比如IE，这就导致了开发人员负担，很难做到一套代码可以兼容的跑在多种浏览器中，甚至不能跑在同一浏览器不同版本中。    1997年，制定首个版本ECMA-262
+  1999年12月，ES3，支持更强大的正则表达式
+  ES4太激进，最终放弃
+  2009年，ES5发布，得到广泛支持。支持严格模式。支持Json。
+  2015年，ES6发布，引入非常多的新的语言特性，还兼任旧版本特性。ES6之前按照版本号命名，从ES6开始使用年份作为版本号，ES6即ECMAScript 2015。
+  V8  旧址浏览器实参一家独大，Firefox，chrome异军突起。 2008年9月2日，Google的chrome浏览器发布，一并发布的js引擎。就是V8引擎。V8使用的BSD协议开源。 V8引擎使用C&#43;&#43;开发，将JavaScript编译成了机器码，而不是字节码，还是用很多优化方法提高性能，因此，V8引擎速度非常快。 V8引擎还可以独立运行，可以嵌入到其他任何C&#43;&#43;程序中 V8引擎的诞生，使得服务器端运行JS成为了方便的事情。  Nodejs  Nodejs是服务器端运行服务端运行Javascript的开源、跨平台运行环境。 Nodejs冤死作者瑞安*达尔（Ryan Dahl），于2009年发布，使用了V8引擎，采用事件驱动，非阻塞异步IO模型。 2010年，npm软件包管理器但是，通过它，可以方便的发布，分析Nodejs的库和源代码。 Nodejs4."/>
+
+    <meta property="og:title" content="ES6" />
+<meta property="og:description" content="JS  Javascript简称js，是一种动态弱类型脚本解释性语言，和HTML，CSS并称三大WEB核心技术，得到了几乎主流浏览器支持。 1994年，网景Netscape公司成立并发布Netscape Navigator浏览器，占据了很大的实参份额，网景意识到WEB需要动态，需要一种技术来实现 1995年9月网景浏览器2发布测试版本发布了liveScript,随即在12月的测试版就更名为Javascript。 1997年，网景、微软、sun、Borlan公司和其他组织在ECMA确定了ECMAScript语言标准。js则是ECMAscript标准的实现之一。 由于IE的捆绑销售，网景的单一浏览器市场萎缩，从1990年代的90%下降到2006年的1%。 1999年网景被AOL收购，收购后不久，Netscape公开浏览器代码，并创建了Mozilla组织。Mozilla组织使用Gecok引擎重写浏览器，当然Mozilla组织将Gecok引擎发布了Firefox浏览器。 2003年5月，网景解散。 AOL于2007年12月宣传支持Netscaoe浏览器。  网景的技术  HTTP Cookie，解决HTTP无状态 JavaScript SSL协议 JAR格式文件，将Java的class文件打包压缩，并加上签名 2012年4月9日，微软以10亿5千6百万美元购买800项美国在线的专利或专利授权，专家们认为网景的SSL，Cookie等专利可能是 微软愿意出高价的理由之一【wiki百科】  ES   ES,ECMAScript是由ECMA国际(前身为欧洲计算机制造商协会，英文名是European Computer Manufacturers Association)通过ECMA-262标准化的脚本程序设计语言。该语言被广泛应用于互联网。
+  Javascript是商品名，目前商标权Oracle公司手中。ES是标准名。
+  根据ES标准，有很多实现引擎，其中包括JavaScript或jscript，它们都是ECMA-262标准的实现和扩展。
+  为什么之前浏览器兼容是大问题？
+ 运行HTML、CSS、Js技术都在发展，标准版本很多。浏览器内嵌的引擎是西安不太一致，甚至有不按照标准实现，或减少实现，或改变实现，或增加功能的实现，比如IE，这就导致了开发人员负担，很难做到一套代码可以兼容的跑在多种浏览器中，甚至不能跑在同一浏览器不同版本中。    1997年，制定首个版本ECMA-262
+  1999年12月，ES3，支持更强大的正则表达式
+  ES4太激进，最终放弃
+  2009年，ES5发布，得到广泛支持。支持严格模式。支持Json。
+  2015年，ES6发布，引入非常多的新的语言特性，还兼任旧版本特性。ES6之前按照版本号命名，从ES6开始使用年份作为版本号，ES6即ECMAScript 2015。
+  V8  旧址浏览器实参一家独大，Firefox，chrome异军突起。 2008年9月2日，Google的chrome浏览器发布，一并发布的js引擎。就是V8引擎。V8使用的BSD协议开源。 V8引擎使用C&#43;&#43;开发，将JavaScript编译成了机器码，而不是字节码，还是用很多优化方法提高性能，因此，V8引擎速度非常快。 V8引擎还可以独立运行，可以嵌入到其他任何C&#43;&#43;程序中 V8引擎的诞生，使得服务器端运行JS成为了方便的事情。  Nodejs  Nodejs是服务器端运行服务端运行Javascript的开源、跨平台运行环境。 Nodejs冤死作者瑞安*达尔（Ryan Dahl），于2009年发布，使用了V8引擎，采用事件驱动，非阻塞异步IO模型。 2010年，npm软件包管理器但是，通过它，可以方便的发布，分析Nodejs的库和源代码。 Nodejs4." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://jhweb.top/%E5%89%8D%E7%AB%AF/es6/" />
+<meta property="article:published_time" content="2020-08-12T16:33:28+08:00" />
+<meta property="article:modified_time" content="2020-08-12T16:33:28+08:00" />
+
+
+  </head>
+  <body>
+    <header class="app-header">
+      <a href="https://jhweb.top"><img class="app-header-avatar" src="/avatar.jpg" alt="蒋浩文" /></a>
+      <h1>jhw 博客网站</h1>
+      <p>好好学习，天天向上。</p>
+      <div class="app-header-social">
+        
+          <a target="_blank" href="https://github.com/qyhx-jhw/" rel="noreferrer noopener"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github">
+  <title>github</title>
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+</svg></a>
+        
+          <a target="_blank" href="/about" rel="noreferrer noopener"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-home">
+  <title>home</title>
+  <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline>
+</svg></a>
+        
+      </div>
+    </header>
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">ES6</h1>
+      <div class="post-meta">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          
+          2020-08-12
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
+  <title>clock</title>
+  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+          阅读3 分钟
+        </div></div>
+    </header>
+    <div class="post-content">
+      <h1 id="js">JS</h1>
+<ul>
+<li>Javascript简称js，是一种动态弱类型脚本解释性语言，和HTML，CSS并称三大WEB核心技术，得到了几乎主流浏览器支持。</li>
+<li>1994年，网景Netscape公司成立并发布Netscape Navigator浏览器，占据了很大的实参份额，网景意识到WEB需要动态，需要一种技术来实现</li>
+<li>1995年9月网景浏览器2发布测试版本发布了liveScript,随即在12月的测试版就更名为Javascript。</li>
+<li>1997年，网景、微软、sun、Borlan公司和其他组织在ECMA确定了ECMAScript语言标准。js则是ECMAscript标准的实现之一。</li>
+<li>由于IE的捆绑销售，网景的单一浏览器市场萎缩，从1990年代的90%下降到2006年的1%。</li>
+<li>1999年网景被AOL收购，收购后不久，Netscape公开浏览器代码，并创建了Mozilla组织。Mozilla组织使用Gecok引擎重写浏览器，当然Mozilla组织将Gecok引擎发布了Firefox浏览器。</li>
+<li>2003年5月，网景解散。</li>
+<li>AOL于2007年12月宣传支持Netscaoe浏览器。</li>
+</ul>
+<h2 id="网景的技术">网景的技术</h2>
+<ul>
+<li>HTTP Cookie，解决HTTP无状态</li>
+<li>JavaScript</li>
+<li>SSL协议</li>
+<li>JAR格式文件，将Java的class文件打包压缩，并加上签名</li>
+<li>2012年4月9日，微软以10亿5千6百万美元购买800项美国在线的专利或专利授权，专家们认为网景的SSL，Cookie等专利可能是 微软愿意出高价的理由之一【wiki百科】</li>
+</ul>
+<h1 id="es">ES</h1>
+<ul>
+<li>
+<p>ES,ECMAScript是由ECMA国际(前身为欧洲计算机制造商协会，英文名是European Computer Manufacturers Association)通过ECMA-262标准化的脚本程序设计语言。该语言被广泛应用于互联网。</p>
+</li>
+<li>
+<p>Javascript是商品名，目前商标权Oracle公司手中。ES是标准名。</p>
+</li>
+<li>
+<p>根据ES标准，有很多实现引擎，其中包括JavaScript或jscript，它们都是ECMA-262标准的实现和扩展。</p>
+</li>
+<li>
+<p>为什么之前浏览器兼容是大问题？</p>
+<ul>
+<li>运行HTML、CSS、Js技术都在发展，标准版本很多。浏览器内嵌的引擎是西安不太一致，甚至有不按照标准实现，或减少实现，或改变实现，或增加功能的实现，比如IE，这就导致了开发人员负担，很难做到一套代码可以兼容的跑在多种浏览器中，甚至不能跑在同一浏览器不同版本中。</li>
+</ul>
+</li>
+<li>
+<p>1997年，制定首个版本ECMA-262</p>
+</li>
+<li>
+<p>1999年12月，ES3，支持更强大的正则表达式</p>
+</li>
+<li>
+<p>ES4太激进，最终放弃</p>
+</li>
+<li>
+<p>2009年，ES5发布，得到广泛支持。支持严格模式。支持Json。</p>
+</li>
+<li>
+<p>2015年，ES6发布，引入非常多的新的语言特性，还兼任旧版本特性。ES6之前按照版本号命名，从ES6开始使用年份作为版本号，ES6即ECMAScript 2015。</p>
+</li>
+</ul>
+<h1 id="v8">V8</h1>
+<ul>
+<li>旧址浏览器实参一家独大，Firefox，chrome异军突起。</li>
+<li>2008年9月2日，Google的chrome浏览器发布，一并发布的js引擎。就是V8引擎。V8使用的BSD协议开源。</li>
+<li>V8引擎使用C++开发，将JavaScript编译成了机器码，而不是字节码，还是用很多优化方法提高性能，因此，V8引擎速度非常快。</li>
+<li>V8引擎还可以独立运行，可以嵌入到其他任何C++程序中</li>
+<li>V8引擎的诞生，使得服务器端运行JS成为了方便的事情。</li>
+</ul>
+<h1 id="nodejs">Nodejs</h1>
+<ul>
+<li>Nodejs是服务器端运行服务端运行Javascript的开源、跨平台运行环境。</li>
+<li>Nodejs冤死作者瑞安*达尔（Ryan Dahl），于2009年发布，使用了V8引擎，采用事件驱动，非阻塞异步IO模型。</li>
+<li>2010年，npm软件包管理器但是，通过它，可以方便的发布，分析Nodejs的库和源代码。</li>
+<li>Nodejs4.0引用了ES6语言特性。</li>
+<li>我们学校JS，炮制Nodejs，为了调试方便，使用最新的ES2017特性。</li>
+</ul>
+<h2 id="安装">安装</h2>
+<ul>
+<li>国内阿里云镜像站
+<ul>
+<li><a href="https://npm.taobao.org/mirrors/node">https://npm.taobao.org/mirrors/node</a></li>
+</ul>
+</li>
+<li>Linux
+<ul>
+<li><a href="https://nodejs.org/dist/v8.7.0/node-v8.7.0-linux-armv7l.tar.xz">https://nodejs.org/dist/v8.7.0/node-v8.7.0-linux-armv7l.tar.xz</a></li>
+</ul>
+</li>
+<li>Windows
+<ul>
+<li><a href="https://nodejs.org/dist/v8.7.0/node-v8.7.0-x64.msi">https://nodejs.org/dist/v8.7.0/node-v8.7.0-x64.msi</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="开发">开发</h1>
+<ul>
+<li>搜索MDN，Mozilla Developer Network,提供非常完善HTML、CSS、JS等技术资料</li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/Javascript">https://developer.mozilla.org/zh-CN/docs/Web/Javascript</a></li>
+<li>指南 <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide">https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide</a>非常好的JS文档</li>
+<li>使用任何一种文本编辑器，都可以开发JS，但是使用微软的visual Studio COde开发。</li>
+</ul>
+<h2 id="visual-studio-code">Visual Studio Code</h2>
+<h3 id="一注释">一、注释</h3>
+<ul>
+<li>//</li>
+<li>/<em>注释</em>/</li>
+</ul>
+<h3 id="二常量和变量">二、常量和变量</h3>
+<ul>
+<li>
+<p>标识符</p>
+</li>
+<li>
+<p>标识符必须是字母，下划线，美元符号和数字，但必须是字母，下划线，美元符号开头，依然是不能数字开头。</p>
+</li>
+<li>
+<p>标识符区分大小写</p>
+</li>
+<li>
+<p>声明</p>
+<ul>
+<li>var 声明一个变量</li>
+<li>let 声明一个作用域中的局部变量</li>
+<li>const声明一个常量</li>
+<li>JS中变量生命和初始化是可以分开的
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">a</span><span style="color:#75715e">//只是声明，a为undefined
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">b</span>
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#ae81ff">1</span>,<span style="color:#a6e22e">a</span>,<span style="color:#a6e22e">b</span>)
+
+    <span style="color:#a6e22e">a</span><span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
+    <span style="color:#a6e22e">b</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;a string&#39;</span>
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#ae81ff">2</span>,<span style="color:#a6e22e">a</span>,<span style="color:#a6e22e">b</span>)
+
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">c</span><span style="color:#f92672">=</span><span style="color:#ae81ff">100</span><span style="color:#75715e">//常量必须声明时赋值，之后不能再改
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">c</span>)
+
+    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">y</span><span style="color:#75715e">//只是声明，y为undefind
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">x</span><span style="color:#f92672">=</span><span style="color:#ae81ff">5</span><span style="color:#75715e">//规范的声明并初始化，声明全局或局部变量。
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">x</span><span style="color:#f92672">=</span><span style="color:#ae81ff">6</span><span style="color:#75715e">//不规范的初始化，不推荐。在严格模式下产生异常。在赋值之前不能引用
+</span></code></pre></div><ul>
+<li>常量和变量的选择</li>
+<li>如果明确知道一个标识符定义后不再修改，应该尽量声明成const常量，减少被修改的风险，减少Bug。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="三数据类型">三、数据类型</h3>
+<hr>
+<table>
+<thead>
+<tr>
+<th align="center">序号</th>
+<th align="center">名称</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">1</td>
+<td align="center">number</td>
+<td align="center">数值型，包括整型和浮点型</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="center">boolean</td>
+<td align="center">布尔型，true和false</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="center">string</td>
+<td align="center">字符型</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="center">null</td>
+<td align="center">只有一个值null</td>
+</tr>
+<tr>
+<td align="center">5</td>
+<td align="center">undefinde</td>
+<td align="center">变量声明未赋值的；对象未定义属性</td>
+</tr>
+<tr>
+<td align="center">6</td>
+<td align="center">symbol</td>
+<td align="center">ES6新引入类型</td>
+</tr>
+<tr>
+<td align="center">7</td>
+<td align="center">object类型</td>
+<td align="center">是以上基本类型的复合类型，是容器</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<ul>
+<li>
+<p>ES是动态语言，弱类型语言。</p>
+</li>
+<li>
+<p>虽然先声明了变量，但是变量可以重新赋值任何类型。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;==============&#39;</span>)
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">a</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;abc&#39;</span>, <span style="color:#66d9ef">typeof</span> (<span style="color:#a6e22e">a</span>))
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">a</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">undefined</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;abc&#39;</span>, <span style="color:#66d9ef">typeof</span> (<span style="color:#a6e22e">a</span>))
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">a</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;abc&#39;</span>, <span style="color:#66d9ef">typeof</span> (<span style="color:#a6e22e">a</span>))
+
+
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;=======数值=======&#39;</span>)
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">a</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">8</span>, <span style="color:#66d9ef">typeof</span> (<span style="color:#a6e22e">a</span>))
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">a</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">undefined</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">8</span>, <span style="color:#66d9ef">typeof</span> (<span style="color:#a6e22e">a</span>))
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">a</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">8</span>, <span style="color:#66d9ef">typeof</span> (<span style="color:#a6e22e">a</span>))
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">a</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">8</span>, <span style="color:#66d9ef">typeof</span> (<span style="color:#a6e22e">a</span>))
+
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;=======boole======&#39;</span>)
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">a</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span> <span style="color:#f92672">+</span> <span style="color:#66d9ef">true</span>, <span style="color:#66d9ef">typeof</span> (<span style="color:#a6e22e">a</span>))
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">a</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span> <span style="color:#f92672">+</span> <span style="color:#66d9ef">false</span>, <span style="color:#66d9ef">typeof</span> (<span style="color:#a6e22e">a</span>))
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">a</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">undefined</span> <span style="color:#f92672">+</span> <span style="color:#66d9ef">true</span>, <span style="color:#66d9ef">typeof</span> (<span style="color:#a6e22e">a</span>))
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">a</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">undefined</span> <span style="color:#f92672">+</span> <span style="color:#66d9ef">false</span>, <span style="color:#66d9ef">typeof</span> (<span style="color:#a6e22e">a</span>))
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">a</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span> <span style="color:#f92672">&amp;</span> <span style="color:#66d9ef">true</span>, <span style="color:#66d9ef">typeof</span> (<span style="color:#a6e22e">a</span>))
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">a</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">undefined</span> <span style="color:#f92672">&amp;</span> <span style="color:#66d9ef">false</span>, <span style="color:#66d9ef">typeof</span> (<span style="color:#a6e22e">a</span>))
+
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;========短路=======&#39;</span>)
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">a</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#66d9ef">true</span>, <span style="color:#66d9ef">typeof</span> (<span style="color:#a6e22e">a</span>))
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">a</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#66d9ef">null</span>, <span style="color:#66d9ef">typeof</span> (<span style="color:#a6e22e">a</span>))
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;--&#39;</span>)
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">a</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#66d9ef">null</span>, <span style="color:#66d9ef">typeof</span> (<span style="color:#a6e22e">a</span>))
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">a</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#66d9ef">false</span>, <span style="color:#66d9ef">typeof</span> (<span style="color:#a6e22e">a</span>))
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;--&#39;</span>)
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">a</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#e6db74">&#39;abc&#39;</span>, <span style="color:#66d9ef">typeof</span> (<span style="color:#a6e22e">a</span>))
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">a</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;abc&#39;</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#66d9ef">false</span>, <span style="color:#66d9ef">typeof</span> (<span style="color:#a6e22e">a</span>))
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;--&#39;</span>)
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">a</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#e6db74">&#39;bac&#39;</span>, <span style="color:#66d9ef">typeof</span> (<span style="color:#a6e22e">a</span>))
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">a</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;bac&#39;</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#66d9ef">true</span>, <span style="color:#66d9ef">typeof</span> (<span style="color:#a6e22e">a</span>))
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;--&#39;</span>)
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">a</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#e6db74">&#39;&#39;</span>, <span style="color:#66d9ef">typeof</span> (<span style="color:#a6e22e">a</span>))
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">a</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#66d9ef">true</span>, <span style="color:#66d9ef">typeof</span> (<span style="color:#a6e22e">a</span>))
+</code></pre></div><p>结果</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JavaScript" data-lang="JavaScript">    <span style="color:#f92672">==============</span>
+    <span style="color:#ae81ff">3</span><span style="color:#a6e22e">abc</span> <span style="color:#a6e22e">string</span>
+    <span style="color:#a6e22e">undefinedabc</span> <span style="color:#a6e22e">string</span>
+    <span style="color:#a6e22e">trueabc</span> <span style="color:#a6e22e">string</span>
+    <span style="color:#f92672">=======</span><span style="color:#a6e22e">数值</span><span style="color:#f92672">=======</span>
+    <span style="color:#ae81ff">8</span> <span style="color:#a6e22e">number</span>
+    <span style="color:#66d9ef">NaN</span> <span style="color:#a6e22e">number</span>
+    <span style="color:#ae81ff">9</span> <span style="color:#a6e22e">number</span>
+    <span style="color:#ae81ff">8</span> <span style="color:#a6e22e">number</span>
+    <span style="color:#f92672">=======</span><span style="color:#a6e22e">boole</span><span style="color:#f92672">======</span>
+    <span style="color:#ae81ff">1</span> <span style="color:#a6e22e">number</span>
+    <span style="color:#ae81ff">0</span> <span style="color:#a6e22e">number</span>
+    <span style="color:#66d9ef">NaN</span> <span style="color:#a6e22e">number</span>
+    <span style="color:#66d9ef">NaN</span> <span style="color:#a6e22e">number</span>
+    <span style="color:#ae81ff">0</span> <span style="color:#a6e22e">number</span>
+    <span style="color:#ae81ff">0</span> <span style="color:#a6e22e">number</span>
+    <span style="color:#f92672">========</span><span style="color:#a6e22e">短路</span><span style="color:#f92672">=======</span>
+    <span style="color:#66d9ef">null</span> <span style="color:#a6e22e">object</span>
+    <span style="color:#66d9ef">null</span> <span style="color:#a6e22e">object</span>
+    <span style="color:#f92672">--</span>
+    <span style="color:#66d9ef">false</span> <span style="color:#66d9ef">boolean</span>
+    <span style="color:#66d9ef">null</span> <span style="color:#a6e22e">object</span>
+    <span style="color:#f92672">--</span>
+    <span style="color:#66d9ef">false</span> <span style="color:#66d9ef">boolean</span>
+    <span style="color:#66d9ef">false</span> <span style="color:#66d9ef">boolean</span>
+    <span style="color:#f92672">--</span>
+    <span style="color:#a6e22e">bac</span> <span style="color:#a6e22e">string</span>
+    <span style="color:#66d9ef">true</span> <span style="color:#66d9ef">boolean</span>
+    <span style="color:#f92672">--</span>
+    <span style="color:#a6e22e">string</span>
+    <span style="color:#a6e22e">string</span>
+</code></pre></div></li>
+<li>
+<p>弱类型，不需要强制类型转换</p>
+</li>
+<li>
+<p>NaN，Not a Number,转换数字失败</p>
+</li>
+<li>
+<p>总结</p>
+<ul>
+<li>遇到字符串，加号就是拼接字符串，所有非字符串隐式转为字符串</li>
+<li>如果没有字符串，加号把其他所有类型当作数字处理，非数字类型隐式转为数字，undefined特殊，因为他没有定义值，所以是一个特殊在数字Nan。</li>
+<li>如果运算符是逻辑运算符，短路符，返回就是短路时的类型。没有隐式转换。</li>
+<li>除非十分明确，否则不要依赖隐式转换。写代码的时候往往为了程序的健壮，请显示转换。</li>
+</ul>
+</li>
+<li>
+<p>插值输入</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;tom&#39;</span>
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">age</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">19</span>
+  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">`Hi ,my name is </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">name</span><span style="color:#e6db74">}</span><span style="color:#e6db74">.I am </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">age</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>)
+
+  <span style="color:#a6e22e">Hi</span> ,<span style="color:#a6e22e">my</span> <span style="color:#a6e22e">name</span> <span style="color:#a6e22e">is</span> <span style="color:#a6e22e">tom</span>.<span style="color:#a6e22e">I</span> <span style="color:#a6e22e">am</span> <span style="color:#ae81ff">19</span>
+</code></pre></div></li>
+</ul>
+<ol>
+<li>
+<p>字符串操作方式</p>
+<ul>
+<li>289、ES6开发入门</li>
+</ul>
+</li>
+<li>
+<p>数值型number</p>
+<ul>
+<li>js中，数据均为双精度范围-（2^53-1）和2^53-1之间。</li>
+<li>数字类型还有三种符号：+infinity（正无穷），-infinity（负无穷）和NaN（not-a-number非数字）</li>
+<li>二进制0b0010，0B110</li>
+<li>八进制0755.ES6中最好的使用前缀0o前缀表示八进制</li>
+<li>十六进制0xAA，0Xff</li>
+<li>指数表示1E3（1000），2e-2(0.02)</li>
+<li>常量属性</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>
+<p>数字方法</p>
+<ul>
+<li>290、es6</li>
+</ul>
+</li>
+<li>
+<p>逗号操作符</p>
+</li>
+<li>
+<p>三目运算符</p>
+<ul>
+<li>console.log((1&gt;0)?&lsquo;真&rsquo;:&lsquo;假&rsquo;)</li>
+</ul>
+</li>
+<li></li>
+</ul>
+<ol start="3">
+<li>表达式</li>
+</ol>
+<ul>
+<li>解析式和生成器ES6</li>
+<li>function* 表示生成器函数
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">  <span style="color:#66d9ef">function</span><span style="color:#f92672">*</span> <span style="color:#a6e22e">inc</span>(){
+<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">i</span><span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>
+<span style="color:#66d9ef">while</span> (<span style="color:#66d9ef">true</span>){
+    <span style="color:#66d9ef">yield</span> (<span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>);
+  }
+}
+<span style="color:#a6e22e">g</span><span style="color:#f92672">=</span><span style="color:#a6e22e">inc</span>()
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">g</span>.<span style="color:#a6e22e">next</span>())
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">g</span>.<span style="color:#a6e22e">next</span>().<span style="color:#a6e22e">value</span>)
+{ <span style="color:#a6e22e">value</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1</span>, <span style="color:#a6e22e">done</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span> }
+<span style="color:#ae81ff">2</span>
+</code></pre></div></li>
+</ul>
+<ol start="4">
+<li>结构
+<ul>
+<li>&hellip;结构容器</li>
+</ul>
+</li>
+</ol>
+<h3 id="四js语法">四、js语法</h3>
+<ul>
+<li>
+<p>语句块</p>
+<ul>
+<li>从ES6开始支持块作用域，let只能在块作用域内可见
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">  <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">a</span>(){
+    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">i</span><span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
+  }
+
+</code></pre></div></li>
+</ul>
+</li>
+<li>
+<p>流程控制</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">  <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">cond1</span>){
+
+  }
+  <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">cond2</span>){
+
+  }
+  <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">cond3</span>){
+
+  }
+  <span style="color:#66d9ef">else</span>{
+
+  }
+</code></pre></div></li>
+<li>
+<p>分支语句</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">  <span style="color:#66d9ef">switch</span>(<span style="color:#a6e22e">expression</span>){
+    <span style="color:#66d9ef">case</span> <span style="color:#a6e22e">label_1</span><span style="color:#f92672">:</span>
+      <span style="color:#a6e22e">statement_1</span>
+      [<span style="color:#66d9ef">break</span>]
+  }
+
+</code></pre></div></li>
+<li>
+<p>箭头函数</p>
+<ul>
+<li>
+<p>如果函数没有参数使用（）</p>
+</li>
+<li>
+<p>如果只有一个参数，参数列表可以省略（）</p>
+</li>
+<li>
+<p>多个参数不能省略小括号，且使用逗号间隔</p>
+</li>
+<li>
+<p>返回值</p>
+<ul>
+<li>如果函数体内部有多行，就需要使用{}，如果有返回值使用return</li>
+<li>如果只有一行语句，可以同时省略大括号和return</li>
+<li>只有一条return语句不能省略大括号。console.log(map([1,2,3,4],x=&gt;{return ++x})),有return必须有大括号</li>
+<li>如果只有一条非return语句，加上大括号，函数无返回值 console.log(map([1,2,3,4],x=&gt;{x*2}))</li>
+<li>因此记住,x=&gt;x*2这种正确的形式就行</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>函数参数</p>
+<ul>
+<li>普通参数</li>
+<li>一个参数占一个位置，支持默认参数</li>
+<li>js中没有python中的关键字传参</li>
+<li>js并不限制默认参数的位置</li>
+</ul>
+</li>
+<li>
+<p>可变参数</p>
+<ul>
+<li>js中表示可变参数（&hellip;args）</li>
+</ul>
+</li>
+</ul>
+<h3 id="五定义类">五定义类</h3>
+<p>字面式声明方式</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">obj</span><span style="color:#f92672">=</span>{
+    <span style="color:#a6e22e">a</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#39;abc&#39;</span>
+  }
+
+  <span style="color:#a6e22e">abc</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">obj</span>.<span style="color:#a6e22e">a</span>)
+  <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">A</span>(){
+    <span style="color:#66d9ef">this</span>
+  }
+</code></pre></div><ul>
+<li>
+<p>es6中的class</p>
+<ul>
+<li>从es6开始，新提供的class关键字，是的船舰对象更加简单清晰</li>
+<li>一个类只能拥有一个名为constructor构造器方法。如果没有显示的定义一个构造方法，则会添加一个默认大的constuctor方法</li>
+<li>继承使用extends关键字</li>
+<li>一个构造器使用super关键字来调用一个父类的构造函数。</li>
+<li>类没有私有属性</li>
+</ul>
+</li>
+<li>
+<p>重写方法</p>
+<ul>
+<li>重名函数直接重新写</li>
+</ul>
+</li>
+<li>
+<p>静态方法：static</p>
+<ul>
+<li>在方法名前加static就是静态方法了</li>
+</ul>
+</li>
+</ul>
+<h3 id="异常">异常</h3>
+<ul>
+<li>js的一场语法和java相同，使用throw关键字抛出</li>
+<li>使用throw关键字可以抛出任意对象的异常</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">  <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> Error(<span style="color:#e6db74">&#39;new error&#39;</span>)
+</code></pre></div><ul>
+<li>捕获异常
+<ul>
+<li>try&hellip;catch语句捕获异常。</li>
+<li></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+    </main>
+  </body>
+</html>

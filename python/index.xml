@@ -104,7 +104,9 @@ end INFO:root:&amp;lt;Thread(w1, started 13144)&amp;gt;--0 INFO:root:&amp;lt;Thr
   与Scheme、Ruby、Perl、Tcl等动态类型编程语言一样，Python拥有动态类型系统和垃圾回收功能，能够自动管理内存使用，并且支持多种编程范式，包括面向对象、命令式、函数式和过程式编程。其本身拥有一个巨大而广泛的标准库。
   Python 解释器本身几乎可以在所有的操作系统中运行。Python的其中一个解释器CPython是用C语言编写的、是一个由社群驱动的自由软件，目前由Python软件基金会管理。
    Pycharm  PyCharm是一个用于计算机编程的集成开发环境，主要用于Python语言开发，由捷克公司JetBrains开发，提供代码分析、图形化调试器，集成测试器、集成版本控制系统，并支持使用Django进行网页开发。 PyCharm是一个跨平台开发环境，拥有Microsoft Windows、macOS和Linux版本。   Tengine Tengine是由淘宝网发起的Web服务器项目。
- Tengine是一个由淘宝从Nginx复刻出来的HTTP服务器，现时版本为2.2.2。Tengine对Nginx的修改版本是于2011年12月开始释放出来成为开源项目，两者配置兼容。  </description>
+ Tengine是一个由淘宝从Nginx复刻出来的HTTP服务器，现时版本为2.2.2。Tengine对Nginx的修改版本是于2011年12月开始释放出来成为开源项目，两者配置兼容。  SQLALchemy SQLAlchemy是一个ORM框架 大量使用元编程
+安装 $ pip install sqlalchemy
+文档 </description>
     </item>
     
   </channel>

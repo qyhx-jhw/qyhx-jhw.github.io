@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>MySQLs on jhw 博客网站</title>
+    <link>https://jhweb.top/mysql/</link>
+    <description>Recent content in MySQLs on jhw 博客网站</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sun, 30 Aug 2020 16:12:55 +0800</lastBuildDate>
+    
+	<atom:link href="https://jhweb.top/mysql/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Mysql</title>
+      <link>https://jhweb.top/mysql/mysql/</link>
+      <pubDate>Sun, 30 Aug 2020 16:12:55 +0800</pubDate>
+      
+      <guid>https://jhweb.top/mysql/mysql/</guid>
+      <description>内联，左联，右联  Name表：select * from Name     ID Name     1 张三   2 李四   3 王五     Company：select * from Company     ID Name     1 银行   2 软件   3 房地产      内联
+select a.*,b.* from Name as a linner join Company as b on a.</description>
+    </item>
+    
+  </channel>
+</rss>

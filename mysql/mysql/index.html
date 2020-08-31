@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <title>Mysql // jhw 博客网站</title>
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.73.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="蒋浩文" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="https://jhweb.top/css/main.min.366e0ee61030653c4f8925f9bd4a9db5b3c23b09a6fddf2bccb02e2426ecde43.css" />
+
+    
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Mysql"/>
+<meta name="twitter:description" content="内联，左联，右联  Name表：select * from Name     ID Name     1 张三   2 李四   3 王五     Company：select * from Company     ID Name     1 银行   2 软件   3 房地产      内联
+select a.*,b.* from Name as a linner join Company as b on a."/>
+
+    <meta property="og:title" content="Mysql" />
+<meta property="og:description" content="内联，左联，右联  Name表：select * from Name     ID Name     1 张三   2 李四   3 王五     Company：select * from Company     ID Name     1 银行   2 软件   3 房地产      内联
+select a.*,b.* from Name as a linner join Company as b on a." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://jhweb.top/mysql/mysql/" />
+<meta property="article:published_time" content="2020-08-30T16:12:55+08:00" />
+<meta property="article:modified_time" content="2020-08-30T16:12:55+08:00" />
+
+
+  </head>
+  <body>
+    <header class="app-header">
+      <a href="https://jhweb.top"><img class="app-header-avatar" src="/avatar.jpg" alt="蒋浩文" /></a>
+      <h1>jhw 博客网站</h1>
+      <p>好好学习，天天向上。</p>
+      <div class="app-header-social">
+        
+          <a target="_blank" href="https://github.com/qyhx-jhw/" rel="noreferrer noopener"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github">
+  <title>github</title>
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+</svg></a>
+        
+          <a target="_blank" href="/about" rel="noreferrer noopener"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-home">
+  <title>home</title>
+  <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline>
+</svg></a>
+        
+      </div>
+    </header>
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">Mysql</h1>
+      <div class="post-meta">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          
+          2020-08-30
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
+  <title>clock</title>
+  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+          阅读2 分钟
+        </div></div>
+    </header>
+    <div class="post-content">
+      <h2 id="内联左联右联">内联，左联，右联</h2>
+<ol>
+<li>Name表：select * from Name</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th align="center">ID</th>
+<th align="center">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">1</td>
+<td align="center">张三</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="center">李四</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="center">王五</td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li>Company：select * from Company</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th align="center">ID</th>
+<th align="center">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">1</td>
+<td align="center">银行</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="center">软件</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="center">房地产</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>
+<p>内联</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql">    <span style="color:#66d9ef">select</span> a.<span style="color:#f92672">*</span>,b.<span style="color:#f92672">*</span> <span style="color:#66d9ef">from</span> Name <span style="color:#66d9ef">as</span> a linner <span style="color:#66d9ef">join</span> Company <span style="color:#66d9ef">as</span> b <span style="color:#66d9ef">on</span> a.ID<span style="color:#f92672">=</span>b.ID; 
+</code></pre></div><table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Name</th>
+<th>ID</th>
+<th>Company</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>张三</td>
+<td>1</td>
+<td>银行</td>
+</tr>
+<tr>
+<td>2</td>
+<td>李四</td>
+<td>2</td>
+<td>软件</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>左联</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql">    <span style="color:#66d9ef">select</span> a.<span style="color:#f92672">*</span>,b.<span style="color:#f92672">*</span> <span style="color:#66d9ef">from</span> Name <span style="color:#66d9ef">as</span> a <span style="color:#66d9ef">left</span> <span style="color:#66d9ef">join</span> Company <span style="color:#66d9ef">as</span> b <span style="color:#66d9ef">on</span> a.ID<span style="color:#f92672">=</span>b.ID;
+</code></pre></div><table>
+<thead>
+<tr>
+<th align="center">ID</th>
+<th align="center">Name</th>
+<th align="center">ID</th>
+<th align="center">Company</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">1</td>
+<td align="center">张三</td>
+<td align="center">1</td>
+<td align="center">银行</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="center">李四</td>
+<td align="center">2</td>
+<td align="center">软件</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="center">王五</td>
+<td align="center">空</td>
+<td align="center">空</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>右联</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql">    <span style="color:#66d9ef">select</span> a.<span style="color:#f92672">*</span> ,b.<span style="color:#f92672">*</span> <span style="color:#66d9ef">from</span> Name <span style="color:#66d9ef">as</span> a <span style="color:#66d9ef">right</span> <span style="color:#66d9ef">join</span> Company <span style="color:#66d9ef">as</span> b <span style="color:#66d9ef">on</span> a.ID<span style="color:#f92672">=</span>b.ID;
+</code></pre></div><table>
+<thead>
+<tr>
+<th align="center">ID</th>
+<th align="center">Name</th>
+<th align="center">ID</th>
+<th align="center">Company</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">1</td>
+<td align="center">张三</td>
+<td align="center">1</td>
+<td align="center">银行</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="center">李四</td>
+<td align="center">2</td>
+<td align="center">软件</td>
+</tr>
+<tr>
+<td align="center">空</td>
+<td align="center">空</td>
+<td align="center">4</td>
+<td align="center">房地产</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<h2 id="sql语句">SQL语句</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql">    <span style="color:#75715e">-- 创建classes表
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> classes(
+        id int UNSIGNED <span style="color:#66d9ef">PRIMARY</span> <span style="color:#66d9ef">KEY</span> auto_increment <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span>,
+        name VARCHAR(<span style="color:#ae81ff">28</span>) <span style="color:#66d9ef">not</span> <span style="color:#66d9ef">NULL</span>
+    );
+
+    <span style="color:#75715e">-- 插入数据
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">INSERT</span> <span style="color:#66d9ef">into</span> classes <span style="color:#66d9ef">VALUES</span>
+    (<span style="color:#ae81ff">0</span>,<span style="color:#e6db74">&#39;1班&#39;</span>),
+    (<span style="color:#ae81ff">0</span>,<span style="color:#e6db74">&#39;2班&#39;</span>),
+    (<span style="color:#ae81ff">0</span>,<span style="color:#e6db74">&#39;3班&#39;</span>),
+    (<span style="color:#ae81ff">0</span>,<span style="color:#e6db74">&#39;4班&#39;</span>);
+
+    <span style="color:#75715e">-- 创建学生表
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">create</span> <span style="color:#66d9ef">table</span> students(
+	studentNo int unsigned <span style="color:#66d9ef">primary</span> <span style="color:#66d9ef">key</span> auto_increment <span style="color:#66d9ef">not</span> <span style="color:#66d9ef">null</span>,
+	name varchar(<span style="color:#ae81ff">10</span>),<span style="color:#75715e">--姓名
+</span><span style="color:#75715e"></span>	sex enum(<span style="color:#e6db74">&#39;男&#39;</span>,<span style="color:#e6db74">&#39;女&#39;</span>),<span style="color:#75715e">--性别
+</span><span style="color:#75715e"></span>	hometown varchar(<span style="color:#ae81ff">29</span>),<span style="color:#75715e">--家
+</span><span style="color:#75715e"></span>	age tinyint(<span style="color:#ae81ff">4</span>),<span style="color:#75715e">--年龄
+</span><span style="color:#75715e"></span>	class_id int <span style="color:#66d9ef">not</span> <span style="color:#66d9ef">null</span>,<span style="color:#75715e">--班级id
+</span><span style="color:#75715e"></span>	card varchar(<span style="color:#ae81ff">20</span>)<span style="color:#75715e">--身份证号
+</span><span style="color:#75715e"></span>    );
+
+    <span style="color:#75715e">--插入学生信息
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">insert</span> <span style="color:#66d9ef">into</span> students (name,sex,hometown,age,class_id,card) <span style="color:#66d9ef">values</span>
+    (<span style="color:#e6db74">&#39;王昭君&#39;</span>,<span style="color:#e6db74">&#39;女&#39;</span>,<span style="color:#e6db74">&#39;北京&#39;</span>,<span style="color:#ae81ff">20</span>,<span style="color:#ae81ff">1</span>,<span style="color:#e6db74">&#39;340322199001247654&#39;</span>),
+    (<span style="color:#e6db74">&#39;诸葛亮&#39;</span>,<span style="color:#e6db74">&#39;男&#39;</span>,<span style="color:#e6db74">&#39;上海&#39;</span>,<span style="color:#ae81ff">18</span>,<span style="color:#ae81ff">2</span>,<span style="color:#e6db74">&#39;340322199002242354&#39;</span>),
+    (<span style="color:#e6db74">&#39;张飞&#39;</span>,<span style="color:#e6db74">&#39;男&#39;</span>,<span style="color:#e6db74">&#39;南京&#39;</span>,<span style="color:#ae81ff">24</span>,<span style="color:#ae81ff">3</span>,<span style="color:#e6db74">&#39;340322199003247654&#39;</span>),
+    (<span style="color:#e6db74">&#39;白起&#39;</span>,<span style="color:#e6db74">&#39;男&#39;</span>,<span style="color:#e6db74">&#39;安徽&#39;</span>,<span style="color:#ae81ff">22</span>,<span style="color:#ae81ff">4</span>,<span style="color:#e6db74">&#39;340322199005247654&#39;</span>),
+    (<span style="color:#e6db74">&#39;大乔&#39;</span>,<span style="color:#e6db74">&#39;女&#39;</span>,<span style="color:#e6db74">&#39;天津&#39;</span>,<span style="color:#ae81ff">19</span>,<span style="color:#ae81ff">3</span>,<span style="color:#e6db74">&#39;340322199004247654&#39;</span>),
+    (<span style="color:#e6db74">&#39;孙尚香&#39;</span>,<span style="color:#e6db74">&#39;女&#39;</span>,<span style="color:#e6db74">&#39;河北&#39;</span>,<span style="color:#ae81ff">18</span>,<span style="color:#ae81ff">1</span>,<span style="color:#e6db74">&#39;340322199106247654&#39;</span>),
+    (<span style="color:#e6db74">&#39;百里玄策&#39;</span>,<span style="color:#e6db74">&#39;男&#39;</span>,<span style="color:#e6db74">&#39;山西&#39;</span>,<span style="color:#ae81ff">20</span>,<span style="color:#ae81ff">2</span>,<span style="color:#e6db74">&#39;340322199007247654&#39;</span>),
+    (<span style="color:#e6db74">&#39;小乔&#39;</span>,<span style="color:#e6db74">&#39;女&#39;</span>,<span style="color:#e6db74">&#39;河南&#39;</span>,<span style="color:#ae81ff">15</span>, <span style="color:#ae81ff">3</span>,<span style="color:#66d9ef">null</span>),
+    (<span style="color:#e6db74">&#39;百里守约&#39;</span>,<span style="color:#e6db74">&#39;男&#39;</span>,<span style="color:#e6db74">&#39;湖南&#39;</span>,<span style="color:#ae81ff">21</span>,<span style="color:#ae81ff">1</span>,<span style="color:#e6db74">&#39;&#39;</span>),
+    (<span style="color:#e6db74">&#39;妲己&#39;</span>,<span style="color:#e6db74">&#39;女&#39;</span>,<span style="color:#e6db74">&#39;广东&#39;</span>,<span style="color:#ae81ff">26</span>, <span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#39;340322199607247654&#39;</span>),
+    (<span style="color:#e6db74">&#39;李白&#39;</span>,<span style="color:#e6db74">&#39;男&#39;</span>,<span style="color:#e6db74">&#39;北京&#39;</span>,<span style="color:#ae81ff">30</span>, <span style="color:#ae81ff">4</span>, <span style="color:#e6db74">&#39;340322199005267754&#39;</span>) ,
+    (<span style="color:#e6db74">&#39;孙膑&#39;</span>,<span style="color:#e6db74">&#39;男&#39;</span>,<span style="color:#e6db74">&#39;新疆&#39;</span>,<span style="color:#ae81ff">26</span>, <span style="color:#ae81ff">3</span>, <span style="color:#e6db74">&#39;340322199000297655&#39;</span>) ;
+</code></pre></div><ol>
+<li>
+<p>查询学生&quot;百里守约&quot;的基本信息。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql">    <span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">from</span> students <span style="color:#66d9ef">WHERE</span> name<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;百里守约&#39;</span>;
+</code></pre></div></li>
+<li>
+<p>查询学生&quot;百里守约&quot;或&quot;百里玄策&quot;的基本信息。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql">    <span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">from</span> students <span style="color:#66d9ef">WHERE</span> name<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;百里守约&#39;</span> <span style="color:#66d9ef">or</span> name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;百里玄策&#39;</span>;
+</code></pre></div></li>
+<li>
+<p>查询姓&rsquo;张&rsquo;学生的姓名，年龄，班级。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql">    <span style="color:#66d9ef">select</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">from</span> students <span style="color:#66d9ef">WHERE</span> name <span style="color:#66d9ef">like</span> <span style="color:#e6db74">&#39;张%&#39;</span>; 
+</code></pre></div></li>
+<li>
+<p>查询姓名中含义‘约’字的学生的基本信息。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql">    <span style="color:#66d9ef">select</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">from</span> students <span style="color:#66d9ef">WHERE</span> name <span style="color:#66d9ef">like</span> <span style="color:#e6db74">&#39;%约%&#39;</span>; 
+</code></pre></div></li>
+<li>
+<p>查询姓名长度为三个字，姓‘孙’的学生的学号，姓名，年龄，班级，身份证号。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql">    <span style="color:#66d9ef">select</span> s.studentNo,s.name,s.age,<span style="color:#66d9ef">c</span>.name <span style="color:#66d9ef">FROM</span> students <span style="color:#66d9ef">as</span> s <span style="color:#66d9ef">INNER</span> <span style="color:#66d9ef">join</span> classes <span style="color:#66d9ef">as</span> <span style="color:#66d9ef">c</span> <span style="color:#66d9ef">on</span> s.class_id<span style="color:#f92672">=</span><span style="color:#66d9ef">c</span>.id <span style="color:#66d9ef">and</span> s.name <span style="color:#66d9ef">like</span> <span style="color:#e6db74">&#39;孙__&#39;</span>;
+
+</code></pre></div></li>
+<li>
+<p>查询姓‘百’或者姓‘孙’的学生的基本信息。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql">     <span style="color:#66d9ef">select</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">from</span> students <span style="color:#66d9ef">where</span> name <span style="color:#66d9ef">like</span> <span style="color:#e6db74">&#39;百%&#39;</span> <span style="color:#66d9ef">or</span> name <span style="color:#66d9ef">like</span> <span style="color:#e6db74">&#39;孙%&#39;</span>;
+</code></pre></div></li>
+<li>
+<p>查询姓‘百’但是家乡是‘山西’的学生。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql">    <span style="color:#66d9ef">select</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">from</span> students <span style="color:#66d9ef">where</span> name <span style="color:#66d9ef">like</span> <span style="color:#e6db74">&#39;百%&#39;</span> <span style="color:#66d9ef">and</span> hometown<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;山西&#39;</span>;
+</code></pre></div></li>
+<li>
+<p>查询家乡是‘北京’，‘新疆’，‘山东’，‘上海’的学生的信息。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql">    <span style="color:#66d9ef">select</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">from</span> students <span style="color:#66d9ef">WHERE</span> hometown <span style="color:#66d9ef">in</span> (<span style="color:#e6db74">&#39;北京&#39;</span>,<span style="color:#e6db74">&#39;新疆&#39;</span>,<span style="color:#e6db74">&#39;山东&#39;</span>,<span style="color:#e6db74">&#39;上海&#39;</span>);
+</code></pre></div></li>
+<li>
+<p>查询姓‘孙’，但是家乡不是‘河北’的学生信息。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql">    <span style="color:#66d9ef">select</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">from</span> students <span style="color:#66d9ef">where</span> name <span style="color:#66d9ef">like</span> <span style="color:#e6db74">&#39;孙%&#39;</span> <span style="color:#66d9ef">and</span> hometown <span style="color:#f92672">!=</span><span style="color:#e6db74">&#39;河北&#39;</span>;
+</code></pre></div></li>
+<li>
+<p>查询家乡不是‘北京’，‘新疆’，‘山东’，‘上海’的学生的信息。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql">    <span style="color:#66d9ef">select</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">from</span> students <span style="color:#66d9ef">WHERE</span> hometown <span style="color:#66d9ef">not</span> <span style="color:#66d9ef">in</span> (<span style="color:#e6db74">&#39;北京&#39;</span>,<span style="color:#e6db74">&#39;新疆&#39;</span>,<span style="color:#e6db74">&#39;山东&#39;</span>,<span style="color:#e6db74">&#39;上海&#39;</span>);
+</code></pre></div></li>
+<li>
+<p>查询全部学生信息，并按照‘性别’排序。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql">    <span style="color:#66d9ef">select</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">from</span> students <span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> sex, age <span style="color:#66d9ef">DESC</span>;
+</code></pre></div></li>
+<li></li>
+<li>
+<p>查询所有男生，并按照年龄升序排序。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql">        
+</code></pre></div></li>
+<li>
+<p>统计共有多少个学生。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql">        
+</code></pre></div></li>
+</ol>
+
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+    </main>
+  </body>
+</html>
