@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>测试s on jhw 博客网站</title>
+    <link>https://jhweb.top/%E6%B5%8B%E8%AF%95/</link>
+    <description>Recent content in 测试s on jhw 博客网站</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Fri, 14 Feb 2020 15:54:13 +0800</lastBuildDate>
+    
+	<atom:link href="https://jhweb.top/%E6%B5%8B%E8%AF%95/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Web自动化测试</title>
+      <link>https://jhweb.top/%E6%B5%8B%E8%AF%95/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/</link>
+      <pubDate>Fri, 14 Feb 2020 15:54:13 +0800</pubDate>
+      
+      <guid>https://jhweb.top/%E6%B5%8B%E8%AF%95/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/</guid>
+      <description>Web 自动化测试  让程序代替人为自动化验证Web项目功能的过程  为什么Web项目是和自动化测试？  需求变动不频繁 新项目周期长 项目需要回归测试  主流测试工具  QTP（收费）  QTP时商业的功能测试工具，收费，支持web，桌面自动化测试   Selenium（开源）  Selenium是开源的web自动化测试工具，免费，主要做功能测试   Jmeter（开源，Web，接口，性能）  Jmeter是由Apache公司使用Java平台开发的一款调试工具，指出（web，接口测试，型嫩测试） Web测试在通信层（无UI界面）   Loadrunner（收费，Web，性能）  loadrunner是商业性 能测试工具，收费，功能强大，适合做复杂场景性能测试。    Selenium特点  开源 跨平台：Linux，Windows，mac 核心功能，可以在多个浏览器上进行自动化测试 多语言，Java，python，C# JavaScript，rubsy 成熟稳定，目前被google，百度，腾讯广泛使用  python使用Selenium  安装Selenium pip install selenium  安装Google浏览器的chromeddriver  https://www.seleniumhq.org/download/ https://sites.google.com/a/chromium.org/chromedriver/ 下载对用版本的chromdriver 解压赋值粘贴到google安装目录/或者python的安装目录下   使用 from selenium import webdriver #导入 import time driver = webdriver.</description>
+    </item>
+    
+  </channel>
+</rss>

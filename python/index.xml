@@ -6,7 +6,7 @@
     <description>Recent content in Pythons on jhw 博客网站</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 03 Aug 2020 16:49:08 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 03 Sep 2020 15:35:15 +0800</lastBuildDate>
     
 	<atom:link href="https://jhweb.top/python/index.xml" rel="self" type="application/rss+xml" />
     
@@ -91,6 +91,18 @@
 一、线程安全 daemon线程和non-daemon线程     名称 含义     daemon属性 表示现场是否是daemon线程，这个值必须在start（）之前设置，否则引发RuntimeError异常   isDaemon（） 是否是daemon线程   setDaemon 设置daemon线程，必须在start方法之前设置       non-daemon的情况：daemon=False或者默认不设置
 from threading import Thread from time import sleep import threading, logging logging.basicConfig(level=logging.INFO, ) def work(): for _ in range(10): msg = f&amp;#39;{threading.current_thread()}&amp;#39; logging.info(msg) t = Thread(target=work, name=&amp;#39;w1&amp;#39;, daemon=False) t.start() print(&amp;#39;end&amp;#39;) 结果
 end INFO:root:&amp;lt;Thread(w1, started 13144)&amp;gt;--0 INFO:root:&amp;lt;Thread(w1, started 13144)&amp;gt;--1 INFO:root:&amp;lt;Thread(w1, started 13144)&amp;gt;--2 INFO:root:&amp;lt;Thread(w1, started 13144)&amp;gt;--3 INFO:root:&amp;lt;Thread(w1, started 13144)&amp;gt;--4 INFO:root:&amp;lt;Thread(w1, started 13144)&amp;gt;--5 INFO:root:&amp;lt;Thread(w1, started 13144)&amp;gt;--6 INFO:root:&amp;lt;Thread(w1, started 13144)&amp;gt;--7 INFO:root:&amp;lt;Thread(w1, started 13144)&amp;gt;--8 INFO:root:&amp;lt;Thread(w1, started 13144)&amp;gt;--9   deamon的情况：deamon=True</description>
+    </item>
+    
+    <item>
+      <title>Python_Django</title>
+      <link>https://jhweb.top/python/python_django/</link>
+      <pubDate>Thu, 03 Sep 2020 15:35:15 +0800</pubDate>
+      
+      <guid>https://jhweb.top/python/python_django/</guid>
+      <description>Django  第一步、安装python 第二部、安装在Django  pip install Django==2.2.4    一、创建项目  django-admin startproject &amp;lt;项目名&amp;gt; django-admin startproject mysite   二、启动本地服务  python manage.py runserver &amp;lt;后面可以自定义IP：端口号&amp;gt; 创建admin超级管理员  python manage.py migrate 迁移创建数据库生成db.sqlite3 python manage.py createsuperuser 创建超级用户    三、基本应用结构   Django 创建应用
+ python manage.py startapp &amp;lt;应用名称&amp;gt;    同步数据库
+ python manage.py makemigrations 制造迁移 python manage.py migrate 迁移    在app文件下的admin.py文件中
+ 注册到admin中:  from .</description>
     </item>
     
     <item>

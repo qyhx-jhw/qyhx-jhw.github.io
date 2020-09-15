@@ -111,7 +111,7 @@
   <title>clock</title>
   <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
 </svg>
-          阅读1 分钟
+          阅读2 分钟
         </div></div>
     </header>
     <div class="post-content">
@@ -301,7 +301,7 @@ Python中的线程没有优先级，没有线程组的概念，也不能被销�
 <li>kwargs关键字传参（字典）</li>
 </ol>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">t <span style="color:#f92672">=</span> Thread(target<span style="color:#f92672">=</span>worker, name<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;w1&#39;</span>, kwargs<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;n&#39;</span>: range(<span style="color:#ae81ff">10</span>)})
-</code></pre></div><h3 id="threading的属性和方法">threading的属性和方法</h3>
+</code></pre></div><h3 id="四threading的属性和方法">四、threading的属性和方法</h3>
 <hr>
 <table>
 <thead>
@@ -334,7 +334,7 @@ Python中的线程没有优先级，没有线程组的概念，也不能被销�
 </tbody>
 </table>
 <hr>
-<h3 id="thread实例的属性和方法">Thread实例的属性和方法</h3>
+<h3 id="五thread实例的属性和方法">五、Thread实例的属性和方法</h3>
 <hr>
 <table>
 <thead>
@@ -380,6 +380,87 @@ Python中的线程没有优先级，没有线程组的概念，也不能被销�
 </tbody>
 </table>
 <hr>
+<h3 id="六线程同步">六、线程同步</h3>
+<p>概念
+线程同步，线程间协同，通过某种技术，让线程访问某些数据时，其他线程不能访问这些数据，直到该线程完成对数据的操作。</p>
+<ul>
+<li>临界区（Critical Section）、互斥量（Mutex）、信号量（Semaphore）、事件Event</li>
+</ul>
+<ol>
+<li>Event事件
+Event事件，实现从间通信机制中最简单的实现，使用一个内部的标记flag，通过Flag的True或False的变化进行操作。</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th align="left">名称</th>
+<th align="center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">set()</td>
+<td align="center">标记设置True</td>
+</tr>
+<tr>
+<td align="left">clear()</td>
+<td align="center">标记者设置为False</td>
+</tr>
+<tr>
+<td align="left">is_sel()</td>
+<td align="center">标记是否True</td>
+</tr>
+<tr>
+<td align="left">wait(timeout=None)</td>
+<td align="center">这是等待标记为True的时长，None为无限等待。等到返回True，未等到超市返回False</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>需求雇佣一个工人，让他生成杯子，直到生成了10个杯子。</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">    <span style="color:#f92672">import</span> threading
+<span style="color:#f92672">import</span> logging
+<span style="color:#f92672">import</span> time
+
+logging<span style="color:#f92672">.</span>basicConfig(level<span style="color:#f92672">=</span>logging<span style="color:#f92672">.</span>INFO)
+cups <span style="color:#f92672">=</span> []
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">boos</span>(event):
+    logging<span style="color:#f92672">.</span>info(<span style="color:#e6db74">&#39;我是boss&#39;</span>)
+    event<span style="color:#f92672">.</span>wait()
+    logging<span style="color:#f92672">.</span>info(<span style="color:#e6db74">&#39;goodjob&#39;</span>)
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">worker</span>(event,n<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span>):
+    <span style="color:#66d9ef">while</span> True:
+        time<span style="color:#f92672">.</span>sleep(<span style="color:#ae81ff">0.5</span>)
+        cups<span style="color:#f92672">.</span>append(<span style="color:#ae81ff">1</span>)
+        logging<span style="color:#f92672">.</span>info(<span style="color:#e6db74">&#39;make 1&#39;</span>)
+        <span style="color:#66d9ef">if</span> len(cups) <span style="color:#f92672">&gt;=</span> n:
+            logging<span style="color:#f92672">.</span>info(cups)
+            event<span style="color:#f92672">.</span>set()
+            <span style="color:#66d9ef">break</span>
+
+event <span style="color:#f92672">=</span> threading<span style="color:#f92672">.</span>Event()
+b <span style="color:#f92672">=</span> threading<span style="color:#f92672">.</span>Thread(target<span style="color:#f92672">=</span>boos,args<span style="color:#f92672">=</span>(event,))
+w <span style="color:#f92672">=</span> threading<span style="color:#f92672">.</span>Thread(target<span style="color:#f92672">=</span>worker, args<span style="color:#f92672">=</span>(event,))
+w<span style="color:#f92672">.</span>start()
+b<span style="color:#f92672">.</span>start()
+<span style="color:#f92672">-----------------------------------</span>
+INFO:root:<span style="color:#960050;background-color:#1e0010">我是</span>boss
+INFO:root:make <span style="color:#ae81ff">1</span>
+INFO:root:make <span style="color:#ae81ff">1</span>
+INFO:root:make <span style="color:#ae81ff">1</span>
+INFO:root:make <span style="color:#ae81ff">1</span>
+INFO:root:make <span style="color:#ae81ff">1</span>
+INFO:root:make <span style="color:#ae81ff">1</span>
+INFO:root:make <span style="color:#ae81ff">1</span>
+INFO:root:make <span style="color:#ae81ff">1</span>
+INFO:root:make <span style="color:#ae81ff">1</span>
+INFO:root:make <span style="color:#ae81ff">1</span>
+INFO:root:[<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>]
+INFO:root:goodjob
+
+</code></pre></div><p>wait 优于sleep ，wait会主动让给出时间片，其他线程可以被调度，而sleep会占用时间片不让出。</p>
 
     </div>
     <div class="post-footer">

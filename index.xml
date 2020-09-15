@@ -6,7 +6,7 @@
     <description>Recent content on jhw 博客网站</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 30 Aug 2020 16:12:55 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 03 Sep 2020 15:35:15 +0800</lastBuildDate>
     
 	<atom:link href="https://jhweb.top/index.xml" rel="self" type="application/rss+xml" />
     
@@ -125,6 +125,18 @@ end INFO:root:&amp;lt;Thread(w1, started 13144)&amp;gt;--0 INFO:root:&amp;lt;Thr
     </item>
     
     <item>
+      <title>Python_Django</title>
+      <link>https://jhweb.top/python/python_django/</link>
+      <pubDate>Thu, 03 Sep 2020 15:35:15 +0800</pubDate>
+      
+      <guid>https://jhweb.top/python/python_django/</guid>
+      <description>Django  第一步、安装python 第二部、安装在Django  pip install Django==2.2.4    一、创建项目  django-admin startproject &amp;lt;项目名&amp;gt; django-admin startproject mysite   二、启动本地服务  python manage.py runserver &amp;lt;后面可以自定义IP：端口号&amp;gt; 创建admin超级管理员  python manage.py migrate 迁移创建数据库生成db.sqlite3 python manage.py createsuperuser 创建超级用户    三、基本应用结构   Django 创建应用
+ python manage.py startapp &amp;lt;应用名称&amp;gt;    同步数据库
+ python manage.py makemigrations 制造迁移 python manage.py migrate 迁移    在app文件下的admin.py文件中
+ 注册到admin中:  from .</description>
+    </item>
+    
+    <item>
       <title>OSI七层模型</title>
       <link>https://jhweb.top/computer_network/computer_network/</link>
       <pubDate>Sun, 26 Jul 2020 20:04:17 +0800</pubDate>
@@ -220,6 +232,15 @@ Linux # yum install git windows 下载对应32或64版本
       
       <guid>https://jhweb.top/about/</guid>
       <description>联系方式  手机：15716619548 Email：15716619548@163.com 微信号：15716619548  个人信息  蒋浩文/男/1997 本科/南阳理工学院/软件学院 工作年限：2020年应届 技术博客：https://jhweb.top Github: https://github.com/qyhx-jhw/   期望职位：后端开发相关岗位  项目经历  项目名称：人事信息管理项目 项目简介：将琐碎的人事工作在系统中实现，简单便携化。 主要工作：  主要负责前端界面的设计与实现，后端服务器设计搭建，实现前后端交互。 前端网页的实现采用了 JavaScript 中的 React 库，进行搭建实现，React 使得前端设计也实现了模块化开发。 界面组件采用了 Ant Design 的组件。 与后端交互用到了 axios 库将数据 Json 处理进行传输。 后端服务使用了 Django 框架。 数据存储用到了关系型数据库 MySQL。    技能清单  以下是我熟练使用的技能  编程语言：Python · 后端框架：Django · 前端框架：React   以下是我接触并了解的技能  Redis 数据库，Linux 的基本命令，Nginx    </description>
+    </item>
+    
+    <item>
+      <title>Web自动化测试</title>
+      <link>https://jhweb.top/%E6%B5%8B%E8%AF%95/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/</link>
+      <pubDate>Fri, 14 Feb 2020 15:54:13 +0800</pubDate>
+      
+      <guid>https://jhweb.top/%E6%B5%8B%E8%AF%95/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/</guid>
+      <description>Web 自动化测试  让程序代替人为自动化验证Web项目功能的过程  为什么Web项目是和自动化测试？  需求变动不频繁 新项目周期长 项目需要回归测试  主流测试工具  QTP（收费）  QTP时商业的功能测试工具，收费，支持web，桌面自动化测试   Selenium（开源）  Selenium是开源的web自动化测试工具，免费，主要做功能测试   Jmeter（开源，Web，接口，性能）  Jmeter是由Apache公司使用Java平台开发的一款调试工具，指出（web，接口测试，型嫩测试） Web测试在通信层（无UI界面）   Loadrunner（收费，Web，性能）  loadrunner是商业性 能测试工具，收费，功能强大，适合做复杂场景性能测试。    Selenium特点  开源 跨平台：Linux，Windows，mac 核心功能，可以在多个浏览器上进行自动化测试 多语言，Java，python，C# JavaScript，rubsy 成熟稳定，目前被google，百度，腾讯广泛使用  python使用Selenium  安装Selenium pip install selenium  安装Google浏览器的chromeddriver  https://www.seleniumhq.org/download/ https://sites.google.com/a/chromium.org/chromedriver/ 下载对用版本的chromdriver 解压赋值粘贴到google安装目录/或者python的安装目录下   使用 from selenium import webdriver #导入 import time driver = webdriver.</description>
     </item>
     
   </channel>

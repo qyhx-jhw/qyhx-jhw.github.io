@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <title>Web自动化测试 // jhw 博客网站</title>
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.73.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="蒋浩文" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="https://jhweb.top/css/main.min.366e0ee61030653c4f8925f9bd4a9db5b3c23b09a6fddf2bccb02e2426ecde43.css" />
+
+    
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Web自动化测试"/>
+<meta name="twitter:description" content="Web 自动化测试  让程序代替人为自动化验证Web项目功能的过程  为什么Web项目是和自动化测试？  需求变动不频繁 新项目周期长 项目需要回归测试  主流测试工具  QTP（收费）  QTP时商业的功能测试工具，收费，支持web，桌面自动化测试   Selenium（开源）  Selenium是开源的web自动化测试工具，免费，主要做功能测试   Jmeter（开源，Web，接口，性能）  Jmeter是由Apache公司使用Java平台开发的一款调试工具，指出（web，接口测试，型嫩测试） Web测试在通信层（无UI界面）   Loadrunner（收费，Web，性能）  loadrunner是商业性 能测试工具，收费，功能强大，适合做复杂场景性能测试。    Selenium特点  开源 跨平台：Linux，Windows，mac 核心功能，可以在多个浏览器上进行自动化测试 多语言，Java，python，C# JavaScript，rubsy 成熟稳定，目前被google，百度，腾讯广泛使用  python使用Selenium  安装Selenium pip install selenium  安装Google浏览器的chromeddriver  https://www.seleniumhq.org/download/ https://sites.google.com/a/chromium.org/chromedriver/ 下载对用版本的chromdriver 解压赋值粘贴到google安装目录/或者python的安装目录下   使用 from selenium import webdriver #导入 import time driver = webdriver."/>
+
+    <meta property="og:title" content="Web自动化测试" />
+<meta property="og:description" content="Web 自动化测试  让程序代替人为自动化验证Web项目功能的过程  为什么Web项目是和自动化测试？  需求变动不频繁 新项目周期长 项目需要回归测试  主流测试工具  QTP（收费）  QTP时商业的功能测试工具，收费，支持web，桌面自动化测试   Selenium（开源）  Selenium是开源的web自动化测试工具，免费，主要做功能测试   Jmeter（开源，Web，接口，性能）  Jmeter是由Apache公司使用Java平台开发的一款调试工具，指出（web，接口测试，型嫩测试） Web测试在通信层（无UI界面）   Loadrunner（收费，Web，性能）  loadrunner是商业性 能测试工具，收费，功能强大，适合做复杂场景性能测试。    Selenium特点  开源 跨平台：Linux，Windows，mac 核心功能，可以在多个浏览器上进行自动化测试 多语言，Java，python，C# JavaScript，rubsy 成熟稳定，目前被google，百度，腾讯广泛使用  python使用Selenium  安装Selenium pip install selenium  安装Google浏览器的chromeddriver  https://www.seleniumhq.org/download/ https://sites.google.com/a/chromium.org/chromedriver/ 下载对用版本的chromdriver 解压赋值粘贴到google安装目录/或者python的安装目录下   使用 from selenium import webdriver #导入 import time driver = webdriver." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://jhweb.top/%E6%B5%8B%E8%AF%95/web%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/" />
+<meta property="article:published_time" content="2020-02-14T15:54:13+08:00" />
+<meta property="article:modified_time" content="2020-02-14T15:54:13+08:00" />
+
+
+  </head>
+  <body>
+    <header class="app-header">
+      <a href="https://jhweb.top"><img class="app-header-avatar" src="/avatar.jpg" alt="蒋浩文" /></a>
+      <h1>jhw 博客网站</h1>
+      <p>好好学习，天天向上。</p>
+      <div class="app-header-social">
+        
+          <a target="_blank" href="https://github.com/qyhx-jhw/" rel="noreferrer noopener"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github">
+  <title>github</title>
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+</svg></a>
+        
+          <a target="_blank" href="/about" rel="noreferrer noopener"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-home">
+  <title>home</title>
+  <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline>
+</svg></a>
+        
+      </div>
+    </header>
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">Web自动化测试</h1>
+      <div class="post-meta">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          
+          2020-02-14
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
+  <title>clock</title>
+  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+          阅读1 分钟
+        </div></div>
+    </header>
+    <div class="post-content">
+      <h1 id="web-自动化测试">Web 自动化测试</h1>
+<ol>
+<li>让程序代替人为自动化验证Web项目功能的过程</li>
+</ol>
+<h2 id="为什么web项目是和自动化测试">为什么Web项目是和自动化测试？</h2>
+<ol>
+<li>需求变动不频繁</li>
+<li>新项目周期长</li>
+<li>项目需要回归测试</li>
+</ol>
+<h2 id="主流测试工具">主流测试工具</h2>
+<ol>
+<li>QTP（收费）
+<ul>
+<li>QTP时商业的功能测试工具，收费，支持web，桌面自动化测试</li>
+</ul>
+</li>
+<li>Selenium（开源）
+<ul>
+<li>Selenium是开源的web自动化测试工具，免费，主要做功能测试</li>
+</ul>
+</li>
+<li>Jmeter（开源，Web，接口，性能）
+<ul>
+<li>Jmeter是由Apache公司使用Java平台开发的一款调试工具，指出（web，接口测试，型嫩测试）</li>
+<li>Web测试在通信层（无UI界面）</li>
+</ul>
+</li>
+<li>Loadrunner（收费，Web，性能）
+<ul>
+<li>loadrunner是商业性 能测试工具，收费，功能强大，适合做复杂场景性能测试。</li>
+</ul>
+</li>
+</ol>
+<h2 id="selenium特点">Selenium特点</h2>
+<ol>
+<li>开源</li>
+<li>跨平台：Linux，Windows，mac</li>
+<li>核心功能，可以在多个浏览器上进行自动化测试</li>
+<li>多语言，Java，python，C# JavaScript，rubsy</li>
+<li>成熟稳定，目前被google，百度，腾讯广泛使用</li>
+</ol>
+<h2 id="python使用selenium">python使用Selenium</h2>
+<ul>
+<li>安装Selenium
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">    pip install selenium 
+</code></pre></div></li>
+<li>安装Google浏览器的chromeddriver
+<ul>
+<li><a href="https://www.seleniumhq.org/download/">https://www.seleniumhq.org/download/</a></li>
+<li><a href="https://sites.google.com/a/chromium.org/chromedriver/">https://sites.google.com/a/chromium.org/chromedriver/</a></li>
+<li>下载对用版本的chromdriver</li>
+<li>解压赋值粘贴到google安装目录/或者python的安装目录下</li>
+</ul>
+</li>
+<li>使用
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">    <span style="color:#f92672">from</span> selenium <span style="color:#f92672">import</span> webdriver <span style="color:#75715e">#导入</span>
+    <span style="color:#f92672">import</span> time
+    driver <span style="color:#f92672">=</span> webdriver<span style="color:#f92672">.</span>Chrome()<span style="color:#75715e"># 创建driver类</span>
+    driver<span style="color:#f92672">.</span>get(<span style="color:#e6db74">&#39;https://www.baidu.com&#39;</span>)<span style="color:#75715e"># url百度</span>
+    time<span style="color:#f92672">.</span>sleep(<span style="color:#ae81ff">2</span>)
+
+    driver<span style="color:#f92672">.</span>quit()<span style="color:#75715e"># 退出driver</span>
+</code></pre></div></li>
+</ul>
+<h2 id="webdriver元素定位">WebDriver元素定位</h2>
+<ol>
+<li>id</li>
+<li>name</li>
+<li>class_name</li>
+<li>tag_name</li>
+<li>link_text</li>
+<li>partial_link_text</li>
+<li>Xpath</li>
+<li>Css</li>
+</ol>
+<ul>
+<li>
+<p>id定位</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> selenium <span style="color:#f92672">import</span> webdriver
+
+driver <span style="color:#f92672">=</span> webdriver<span style="color:#f92672">.</span>Chrome()
+url <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;https://www.baidu.com&#39;</span>
+driver<span style="color:#f92672">.</span>get(url)
+
+input <span style="color:#f92672">=</span> driver<span style="color:#f92672">.</span>find_element_by_id(<span style="color:#e6db74">&#39;kw&#39;</span>) <span style="color:#75715e">#id进行定位</span>
+input<span style="color:#f92672">.</span>send_keys(<span style="color:#e6db74">&#39;python&#39;</span>) <span style="color:#75715e"># 输入框输入&#39;python&#39;字符串</span>
+</code></pre></div></li>
+<li>
+<p>name</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">    input <span style="color:#f92672">=</span> driver<span style="color:#f92672">.</span>find_element_by_name(<span style="color:#e6db74">&#39;wd&#39;</span>)
+</code></pre></div></li>
+<li>
+<p>class_name</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">    input <span style="color:#f92672">=</span> driver<span style="color:#f92672">.</span>find_element_class_name(<span style="color:#e6db74">&#39;s_ipt&#39;</span>)
+</code></pre></div></li>
+<li>
+<p>tag_name 拿到所有’input&rsquo;标签的对象，生成一个所有输入框对像组成的列表</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">    inputs <span style="color:#f92672">=</span> driver<span style="color:#f92672">.</span>find_elements_by_tag_name(<span style="color:#e6db74">&#39;input&#39;</span>)
+    <span style="color:#66d9ef">print</span>(inputs)
+    <span style="color:#66d9ef">print</span>(type(inputs))
+    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> inputs:
+        <span style="color:#66d9ef">print</span>(i, type(i))
+</code></pre></div></li>
+<li>
+<p>link_text</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">    <span style="color:#f92672">from</span> selenium <span style="color:#f92672">import</span> webdriver
+    driver <span style="color:#f92672">=</span> webdriver<span style="color:#f92672">.</span>Chrome()
+    blbl <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;https://search.bilibili.com/&#39;</span>
+    driver<span style="color:#f92672">.</span>get(blbl)
+    input <span style="color:#f92672">=</span> driver<span style="color:#f92672">.</span>find_element_by_link_text(<span style="color:#e6db74">&#39;全站排行&#39;</span>)
+    input<span style="color:#f92672">.</span>click()
+</code></pre></div></li>
+<li>
+<p>Xpath</p>
+<ol>
+<li>XPath即未XML Path的简称，它是一种用来稳定XML/HTML文档中某部分位置的语言</li>
+<li>HTML可以开做是XML的一种实现</li>
+<li>Xpath定位：</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">    input1 <span style="color:#f92672">=</span> driver<span style="color:#f92672">.</span>find_element_by_xpath(<span style="color:#e6db74">&#34;//*[@id=&#39;kw&#39;]&#34;</span>)
+    input1<span style="color:#f92672">.</span>send_keys(<span style="color:#e6db74">&#39;python&#39;</span>)
+</code></pre></div></li>
+<li>
+<p>CSS定位</p>
+<ol>
+<li>
+<p>id选择器</p>
+<table>
+<thead>
+<tr>
+<th align="left"></th>
+<th align="left"></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">.class</td>
+<td align="left">.intro</td>
+<td>选择class='intro&rsquo;的所有元素</td>
+</tr>
+<tr>
+<td align="left">#id</td>
+<td align="left">#firstname</td>
+<td>选择id='firstaname&rsquo;的所有元素</td>
+</tr>
+<tr>
+<td align="left">*</td>
+<td align="left">*</td>
+<td>选择所有元素</td>
+</tr>
+<tr>
+<td align="left">olement</td>
+<td align="left">p</td>
+<td>选择所有&lt;p&gt;元素</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>class选择器</p>
+</li>
+</ol>
+<ul>
+<li>格式.class 如：.telA &lt;选择class属性值未telA的所有对象&gt;</li>
+</ul>
+<ol start="3">
+<li>元素选择器：input</li>
+<li>属性选择器</li>
+<li>层级选择器</li>
+</ol>
+</li>
+</ul>
+<h2 id="鼠标操作">鼠标操作</h2>
+<ul>
+<li>鼠标点击
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">    <span style="color:#f92672">from</span> selenium <span style="color:#f92672">import</span> webdriver
+    <span style="color:#f92672">from</span> selenium.webdriver.common.action_chains <span style="color:#f92672">import</span> ActionChains <span style="color:#75715e">#导入鼠标模块</span>
+    driver <span style="color:#f92672">=</span> webdriver<span style="color:#f92672">.</span>Chrome()<span style="color:#75715e">#初始化网络驱动</span>
+    action <span style="color:#f92672">=</span> ActionChains(driver)<span style="color:#75715e">#初始化鼠标将driver传入鼠标</span>
+    url <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;https://www.baidu.com&#39;</span>
+    driver<span style="color:#f92672">.</span>get(url) <span style="color:#75715e"># 访问百度</span>
+    input1 <span style="color:#f92672">=</span> driver<span style="color:#f92672">.</span>find_element_by_id(<span style="color:#e6db74">&#39;kw&#39;</span>) <span style="color:#75715e">#拿到输入框</span>
+    input1<span style="color:#f92672">.</span>send_keys(<span style="color:#e6db74">&#39;python&#39;</span>) <span style="color:#75715e"># 输入‘python’字符串</span>
+    action<span style="color:#f92672">.</span>double_click(input1)<span style="color:#f92672">.</span>perform()<span style="color:#75715e"># 双击输入框</span>
+</code></pre></div></li>
+<li>鼠标拖动
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
+  img <span style="color:#f92672">=</span> driver<span style="color:#f92672">.</span>find_element_by_class_name(<span style="color:#e6db74">&#39;main_img.img-hover&#39;</span>)<span style="color:#75715e">#获得图片</span>
+  inp <span style="color:#f92672">=</span> driver<span style="color:#f92672">.</span>find_element_by_id(<span style="color:#e6db74">&#39;kw&#39;</span>)<span style="color:#75715e">#获得位置</span>
+  action<span style="color:#f92672">.</span>drag_and_drop(img, inp)<span style="color:#f92672">.</span>perform() <span style="color:#75715e">#调用函数将img拖到inp</span>
+</code></pre></div></li>
+</ul>
+
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+    </main>
+  </body>
+</html>
